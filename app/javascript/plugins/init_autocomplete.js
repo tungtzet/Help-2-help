@@ -2,9 +2,14 @@
 import places from 'places.js';
 
 const initAutocomplete = () => {
-  const addressInput = document.getElementById('address-search-home');
-  if (addressInput) {
-    places({ container: addressInput });
+  const addressSearch = document.getElementById('address-search-home');
+  if (addressSearch) {
+    places({ container: addressSearch });
+  }
+
+  const addressForm = document.getElementById('profile_address');
+  if (addressForm) {
+    places({ container: addressForm });
   }
 };
 
