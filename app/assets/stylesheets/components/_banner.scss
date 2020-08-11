@@ -1,0 +1,46 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+#banner-home {
+  height: 600px;
+  text-align: right;
+  position: relative;
+  
+  h1 {
+    position: absolute;
+    bottom: 128px;
+    right: 400px;
+    z-index: 1;
+    &:after {
+      content: "";
+      width: 200px;
+      z-index: -1;
+      height: 20px;
+      position: absolute;
+      bottom: -4px;
+      right: 24px;
+      background: #fff500;
+      opacity: 0.8;
+      // background-image: linear-gradient(rgba(238,232,9,0),rgba(238,232,9,0) 50%,rgba(238,232,9,.6) 51%,rgba(238,232,9,.6));
+      // transition: all .25s ease;
+    }
+  }
+}

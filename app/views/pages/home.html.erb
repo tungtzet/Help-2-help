@@ -1,2 +1,66 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner mb-5" id="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('https://res.cloudinary.com/tungtzet/image/upload/v1597141144/hugging-each-other_new_a7nz0r.jpg');">
+  <div class="container">
+    <h1>You are not alone</h1>
+  </div>
+</div>
+
+<div class="container">
+  <h2>You living with it? Us Too.</h2>
+
+  <div class="cards my-5">
+    <div class="card-trip">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597147974/Women-together_rs9u6c.jpg" />
+      <div class="card-trip-infos">
+        <h2>connect</h2>
+        <div>
+          <p>Short description here!</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-trip">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148585/group_therapy_cntq9w.jpg" />
+      <div class="card-trip-infos">
+        <h2>share</h2>
+        <div>
+          <p>Short description here!</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-trip">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148574/lending-hands_wfbk0l.jpg" />
+      <div class="card-trip-infos">
+        <h2>help</h2>
+        <div>
+          <p>Short description here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="container">
+   <h2>Or just find out there is someone out there <br>also having what you have</h2>
+    <%= form_tag profiles_path, method: :get do %>
+      <div class="form-row">
+        <div class="col">
+          <%= text_field_tag :disease,
+            params[:disease],
+            class: "form-control",
+            placeholder: "What are you living with?"
+          %>
+        </div>
+      
+        <div class="col-3">
+          <%= text_field_tag :address,
+            params[:address],
+            class: "form-control",
+            id: "location-search-home",
+            placeholder: "Where?"
+          %>
+        </div>
+        <div class="col">
+          <%= submit_tag "Find Us!", class: "btn-secondary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
