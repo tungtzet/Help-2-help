@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
   end
 
   def new
+    @profile = Profile.new
     authorize @profile
   end
 
