@@ -15,5 +15,16 @@ class ProfilePolicy < ApplicationPolicy
     def new?
       record.user == user
     end
+
+    def edit?
+      update?
+    end
+
+    def update?
+      record.user == user
+    end
+
+    def destroy
+    end
   end
 end

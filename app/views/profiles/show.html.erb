@@ -1,1 +1,23 @@
-<h1><%= @profile.name %><h1>
+
+<div class="container">
+<br>
+ <div class="card">
+  <h1><%= @profile.name %></h1>
+<br>
+  <h4>About me</h4>
+  <p><%= @profile.bio%></p>
+<br>
+  <h4>Languages</h4>
+  <p><%= @profile.native_language %>
+  <% if @profile.second_language? %>
+     <%= @profile.second_language %></p>
+  <% end %>
+  <br>
+  <h4>Address</h4>
+  <p><%= @profile.address %></p>
+</div>
+  <%= link_to "Back", root_path %>
+  <%= link_to "Edit", edit_profile_path %>
+</div>
+
+
