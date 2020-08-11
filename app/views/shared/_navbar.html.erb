@@ -23,7 +23,7 @@
             <% if current_user.profile %>
               <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
             <% else %>
-                <%= link_to "Create a Profile", profiles_url(current_user), class: "dropdown-item" %>
+              <%= link_to "Create A Profile", new_profile_path, class: "dropdown-item" %>
             <% end %>
           </div>
         </li>

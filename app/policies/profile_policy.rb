@@ -3,28 +3,26 @@ class ProfilePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
-    def index?
-      true
-    end
-
-    def show?
-      record.user == user
-    end
-
-    def new?
-      record.user == user
-    end
-
-    def edit?
-      update?
-    end
-
-    def update?
-      record.user == user
-    end
-
-    def destroy
-    end
   end
+
+  def show?
+    true
+  end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy
+    record.user == user
+  end
+  
+  def create?
+    true
+  end
+
 end

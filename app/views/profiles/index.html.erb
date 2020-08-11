@@ -1,3 +1,6 @@
 <div class="container">
   <h1>We have what you have</h1>
+  <% @profiles.each do |profile| %>
+    <h4><%= profile.name %></h4>
+  <% end %>
 </div>

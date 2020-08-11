@@ -11,7 +11,11 @@ class ProfilesController < ApplicationController
   end
 
   def new
+    @profile = Profile.new
     authorize @profile
+  end
+
+  def create
   end
 
   def edit
@@ -34,6 +38,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :bio, :address, :age, :native_language, :second_language, :user_id)
+    params.require(:profile).permit(:name, :bio, :address, :age, :native_language, :second_language)
   end
 end

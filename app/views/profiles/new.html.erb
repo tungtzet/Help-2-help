@@ -1,1 +1,19 @@
-<%= render 'form', profile: @profile %>
+
+<div class="container">
+  <h1>Tell more about you</h1>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+    <%= simple_form_for(@profile) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :bio %>
+    <%= f.input :age %>
+    <%= f.input :address %>
+    <%= f.input :native_language %>
+    <%= f.input :second_language %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Create", :class => "btn btn-success" %>
+    <%= link_to 'Cancel', root_path, class: 'btn btn-danger ml-2'%>
+  <% end %>
+  </div>
+  </div>
+</div>
