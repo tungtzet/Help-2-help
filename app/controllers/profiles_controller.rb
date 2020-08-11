@@ -18,8 +18,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
-    if @profile
-      @profile.save
+    if @profile.save
       redirect_to profile_path(@profile)
     else
       render new
@@ -33,6 +32,12 @@ class ProfilesController < ApplicationController
 
   def update
     authorize @profile
+    if @profile.update(profile_params)
+      # raise
+      redirect_to profile_path(@profile)
+    else
+      render new
+    end
   end
 
   def destroy
@@ -40,13 +45,15 @@ class ProfilesController < ApplicationController
     render show
   end
 
+ 
+
+  private
+
   def set_profile
     @profile = Profile.find(params[:id])
   end
 
-  private
-
   def profile_params
-    params.require(:profile).permit(:name, :bio, :address, :age, :native_language, :second_language)
+    params.require(:profile).permit(:name, :bio, :address, :age, :native_language, :second_language, :photo)
   end
 end
