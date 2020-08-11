@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
 
   def show
     authorize @profile
+    @friendship = Friendship.new
   end
 
   def new

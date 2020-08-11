@@ -6,8 +6,15 @@
 <br>
   <h4>About me</h4>
   <p><%= @profile.bio%></p>
-  <%= cl_image_tag @profile.photo.key, gravity: :face %>
+  <%# cl_image_tag @profile.photo.key, gravity: :face %>
 <br>
+<div class="form">
+  <%= simple_form_for ([@profile, @friendship]) do |f| %>
+      <% f.input :status %>
+      <%= f.submit "Add Friend", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
   <h4>Languages</h4>
   <p><%= @profile.native_language %>
   <% if @profile.second_language? %>
