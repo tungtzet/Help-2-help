@@ -270,6 +270,7 @@ DEPENDENCIES
   font-awesome-sass
   geocoder
   listen (~> 3.2)
+  nokogiri
   pg (>= 0.18, < 2.0)
   pg_search (~> 2.3.0)
   pry-byebug

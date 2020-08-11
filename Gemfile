@@ -25,6 +25,7 @@ gem 'turbolinks', '~> 5'
 
 # gem faker
 gem 'faker'
+gem 'nokogiri'
 # Authentication & Authorization
 gem 'devise'
 gem 'pundit'
