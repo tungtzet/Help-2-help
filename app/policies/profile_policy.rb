@@ -17,12 +17,12 @@ class ProfilePolicy < ApplicationPolicy
     record.user == user
   end
 
-  def destroy
-    record.user == user
+  def destroy?
+    update?
   end
-  
+
   def create?
     true
   end
-
 end
+

@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:index, :show, :new, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :index
 
   def index
@@ -33,6 +33,8 @@ class ProfilesController < ApplicationController
 
   def update
     authorize @profile
+    @profile.update(profile_params)
+    redirect_to profile_path(@profile)
   end
 
   def destroy
