@@ -7,6 +7,7 @@ ruby '2.6.6'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg_search', '~> 2.3.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -29,6 +30,9 @@ gem 'pundit'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'cloudinary', '~> 1.12.0'
+
+# Geocoding
+gem 'geocoder'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
