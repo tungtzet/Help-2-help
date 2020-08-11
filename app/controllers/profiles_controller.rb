@@ -16,6 +16,15 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    @profile = Profile.new(profile_params)
+    @profile.user = current_user
+    if @profile
+      @profile.save
+      redirect_to profile_path(@profile)
+    else
+      render new
+    end
+    authorize @profile
   end
 
   def edit
