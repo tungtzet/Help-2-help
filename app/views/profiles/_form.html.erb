@@ -1,4 +1,12 @@
-<%= form_for(profiles) do |f| %>
-  <%= f.text_field :name%>
-  <%= f.submit %>
+<%= simple_form_for(profile) do |f| %>
+  <%# <%= f.input :category, collection: Item::SPORT_TYPES %>
+  <%= f.input :name %>
+  <%= f.input :bio %>
+  <%= f.input :address %>
+  <%= f.input :native_language %>
+  <%= f.input :second_language %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit "Update", :class => "btn btn-success" %>
+  <%= link_to 'Cancel', root_path, class: 'btn btn-danger ml-2'%>
 <% end %>
+
