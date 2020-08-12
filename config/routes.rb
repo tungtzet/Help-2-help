@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :friendships, only: [:index, :destroy, :update]
   end
 
-  resources :posts, only: [:show, :new, :create, :destroy, :update]
+  resources :posts
   resources :user_diseases, only: :destroy
 end

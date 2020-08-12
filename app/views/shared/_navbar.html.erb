@@ -14,6 +14,12 @@
         <li class="nav-item">
           <%= link_to current_user.email, "#", class: "nav-link" %>
         </li>
+         <li class="nav-item">
+          <%= link_to "Post a Message", new_post_path, class: "btn" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Show all Posts", posts_path, class: "btn" %>
+        </li>
         <li class="nav-item dropdown">
         <% if current_user.profile && current_user.profile.photo.attached? %>
           <%= cl_image_tag current_user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
