@@ -1,0 +1,23 @@
+
+
+
+<br>
+<% @posts.each do |post| %>
+  <div class="container">
+    <div class="card-trip">
+
+        <div class="card-trip-infos">
+          <h1><%= post.title %></h1>
+          <p><%= post.content %></p>
+          
+        </div>
+        <p><%= link_to "See more", post_path(post) %></p>
+
+         <%= cl_image_tag post.photos.key if post.photos.attached? %>
+        
+    </div>
+  </div>
+  <br>
+ <% end %>
+
+

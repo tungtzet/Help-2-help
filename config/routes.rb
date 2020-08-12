@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :friendships, only: :create
   end
 
-  resources :posts, only: [:show, :new, :create, :destroy, :update]
+  resources :posts, only: [:show, :new, :index, :create, :destroy, :update]
   resources :friendships, only: [:destroy, :update]
   resources :user_diseases, only: :destroy
 end
