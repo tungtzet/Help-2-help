@@ -1,7 +1,7 @@
 <%= simple_form_for(post) do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Post", :class => "btn btn-success" %>
   <%= link_to 'Cancel', root_path, class: 'btn btn-danger ml2-2'%>
 <% end %>

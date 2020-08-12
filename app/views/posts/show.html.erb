@@ -2,8 +2,8 @@
 <br>
 <div class="container">
 <div class="card-trip">
-  
-   <%= cl_image_tag @post.photos if @post.photos.attached? %>
+
+    <%= cl_image_tag @post.photos.first.key if @post.photos.attached? %>
   <div class="card-trip-infos">
     <div>
       <h2><%= @post.title %></h2>
