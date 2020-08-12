@@ -1,19 +1,25 @@
 
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @profile.photo.key if @profile.photo.attached? %>);">
+  <div class="container">
+    <h1><%= @profile.name %></h1>
+    <p><%= @profile.bio if @profile.bio %></p>
+  </div>
+</div>
+
 <div class="container">
 
- <div class="card">
-  <h1><%= @profile.name %></h1>
-  <%= cl_image_tag @profile.photo.key if @profile.photo.attached? %>
-  <h5>About me</h5>
-  <p><%= @profile.bio if @profile.bio %></p>
-  <%# cl_image_tag @profile.photo.key, gravity: :face %>
-
-<div class="form">
-  <%= simple_form_for ([@profile, @friendship]) do |f| %>
-      <% f.input :status %>
-      <%= f.submit "Add Friend", class: "btn btn-primary" %>
+  <% if @friendship.asker && @friendship.asker == current_user %>
+    <%= button_tag @friendship.status, disabled: true, class: "btn btn-success" %>
+  <% else %>
+    <%= simple_form_for ([@profile, @friendship]) do |f| %>
+      <%= f.input :status, input_html: {value: 'pending'} %>
+      <%# hidden_field_tag(:status, 'pending') %>
+      <%= f.submit 'Add Friend', class: "btn btn-primary" %>
+      <%# f.button :button, 'Add Friend', type: 'submit', name: 'status', value: 'pending', class: "btn btn-primary" %>
+      <%# f.submit "Add Friend", name: "status", value: "pending", class: "btn btn-primary" %>
+    <% end %>
   <% end %>
-</div>
 
   <h5>Languages</h5>
   <p><%= @profile.native_language if @profile.native_language %>
@@ -23,7 +29,7 @@
   <br>
   <h5>Address</h5>
   <p><%= @profile.address if @profile.address %></p>
-</div>
+
 
   <%= link_to "See others", profiles_path %>
   <% if @profile.user == current_user %>

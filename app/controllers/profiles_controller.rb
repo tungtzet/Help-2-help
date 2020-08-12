@@ -8,7 +8,12 @@ class ProfilesController < ApplicationController
 
   def show
     authorize @profile
-    @friendship = Friendship.new
+    if Friendship.find_by(asker: current_user, receiver: @profile.user)
+      @friendship = Friendship.find_by(asker: current_user, receiver: @profile.user)
+    else
+      @friendship = Friendship.new
+    end
+    # raise
   end
 
   def new
