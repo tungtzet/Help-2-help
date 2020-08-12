@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_posts, only: [:show, :update, :destroy, :edit]
+  before_action :set_posts, only: [:show, :update, :edit]
   # Lets have a look at all posts
   def index
     @posts = policy_scope(Post)
@@ -16,7 +16,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
@@ -25,6 +24,23 @@ class PostsController < ApplicationController
       render new
     end
     authorize @post
+  end
+
+  def edit
+    authorize @post
+  end
+
+  def update
+    authorize @post
+    @post.update(post_params)
+    redirect_to post_path
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    authorize @post
+    redirect_to posts_path
   end
 
   def set_posts
