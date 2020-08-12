@@ -6,7 +6,7 @@
 
 <% if user_signed_in? && Profile.find_by(user: current_user).nil? %>
   <%= simple_form_for (@profile) do |f| %>
-    <%= f.input :disease, collection: @disease_select, input_html: { class: "select2" } %>
+    <%= f.input :disease, collection: @disease_select, input_html: { class: "select2"} %>
     <%= f.submit 'submit', class: 'btn btn-primary' %>
   <% end %>
 <% end %>
