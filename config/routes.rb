@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     resources :friendships, only: :create
   end
 
-  resources :posts, only: [:show, :new, :index, :edit, :create, :destroy, :update]
-  resources :friendships, only: [:destroy, :update]
+  namespace :user do
+    resources :friendships, only: [:index, :destroy, :update]
+  end
+
+  resources :posts
   resources :user_diseases, only: :destroy
 end
