@@ -24,9 +24,6 @@
 
 <div class="container">
 
-
-
-
   <h5>Languages</h5>
   <p><%= @profile.native_language if @profile.native_language %>
   <% if @profile.second_language? %>
@@ -35,7 +32,9 @@
   <br>
   <h5>Address</h5>
   <p><%= @profile.address if @profile.address %></p>
-
+  <% @profile.diseases.each do |disease| %>
+     <p>I´m living with: <%= disease.name %> </p>
+     <% end %>
 
   <%= link_to "See others", profiles_path %>
   <% if @profile.user == current_user %>
@@ -45,3 +44,16 @@
 </div>
 
 
+<div class="container">
+  <h2>You living with it? Us Too.</h2>
+
+  <div class="cards my-5">
+    <div class="card-trip">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597147974/Women-together_rs9u6c.jpg" />
+      <div class="card-trip-infos">
+        <h2>connect</h2>
+        <div>
+          <p>Short description here!</p>
+        </div>
+      </div>
+    </div>
