@@ -1,0 +1,30 @@
+<div class="container">
+<h1>My Friendship</h1>
+
+
+
+
+<h5>Friend Request from other</h5>
+<div class="cards">
+<% @receiver_friendships.each do |friendship| %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+    url(<%= cl_image_path friendship.asker.profile.photo.key if friendship.asker.profile.photo.attached? %>)">
+    <%= link_to friendship.asker.profile.name, profile_path(friendship.asker.profile) %>
+    <%= simple_form_for [:user, friendship] do |f| %>
+        <%= f.input :status, as: :select, collection: ["accepted", "rejected"] %>
+        <%= f.submit 'Confirm', class: "btn btn-warning" %>
+      <% end %>
+  </div>
+<% end %>
+</div>
+
+
+
+
+
+<h5>Requests I've sent</h5>
+<% @asker_friendships.each do |friendship| %>
+  <p><%= friendship.receiver.profile.name %></p>
+<% end %>
+
+</div>

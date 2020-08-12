@@ -24,6 +24,7 @@ avatar_names = ["felipeandreslugosalazar",
 avatar = 'https://kitt.lewagon.com/placeholder/users/'
 languages = ['German', 'French', 'Italian' , 'Vietnamese']
 languages_second = ['Chinese', 'Russian', 'Dutch' , 'Greek']
+Friendship.destroy_all
 User.destroy_all
 Profile.destroy_all
 Disease.destroy_all
