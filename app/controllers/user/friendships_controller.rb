@@ -12,8 +12,14 @@ class User::FriendshipsController < ApplicationController
       redirect_to  user_friendships_path(@friendship)
     else
       render 'user/friendships/index'
-    end
-    
+    end 
+  end
+
+  def destroy
+    @friendship = Friendship.find(params[:id])
+    authorize [:user, @friendship]
+    @friendship.destroy
+    redirect_to  user_friendships_path(@friendship)
   end
 
   private

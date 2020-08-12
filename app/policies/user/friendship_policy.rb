@@ -14,8 +14,8 @@ class User::FriendshipPolicy < ApplicationPolicy
     true
   end
 
-  # def destroy?
-  #   record.user == user
-  # end
+  def destroy?
+    record.asker == user
+  end
   
 end
