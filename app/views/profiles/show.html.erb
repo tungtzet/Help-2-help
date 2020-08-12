@@ -1,13 +1,13 @@
 
 <div class="container">
-<br>
+
  <div class="card">
   <h1><%= @profile.name %></h1>
-<br>
-  <h4>About me</h4>
-  <p><%= @profile.bio%></p>
+  <%= cl_image_tag @profile.photo.key if @profile.photo.attached? %>
+  <h5>About me</h5>
+  <p><%= @profile.bio if @profile.bio %></p>
   <%# cl_image_tag @profile.photo.key, gravity: :face %>
-<br>
+
 <div class="form">
   <%= simple_form_for ([@profile, @friendship]) do |f| %>
       <% f.input :status %>
@@ -15,17 +15,21 @@
   <% end %>
 </div>
 
-  <h4>Languages</h4>
-  <p><%= @profile.native_language %>
+  <h5>Languages</h5>
+  <p><%= @profile.native_language if @profile.native_language %>
   <% if @profile.second_language? %>
      <%= @profile.second_language %></p>
   <% end %>
   <br>
-  <h4>Address</h4>
-  <p><%= @profile.address %></p>
+  <h5>Address</h5>
+  <p><%= @profile.address if @profile.address %></p>
 </div>
-  <%= link_to "Back", root_path %>
-  <%= link_to "Edit", edit_profile_path %>
+
+  <%= link_to "See others", profiles_path %>
+  <% if @profile.user == current_user %>
+    <%= link_to "Edit", edit_profile_path %>
+  <% end %>
+
 </div>
 
 

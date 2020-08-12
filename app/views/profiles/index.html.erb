@@ -1,6 +1,15 @@
 <div class="container">
   <h1>We have what you have</h1>
-  <% @profiles.each do |profile| %>
-    <h4><%= profile.name %></h4>
-  <% end %>
+
+  <div class="col-12 col-lg-7">
+    <div class="cards d-flex flex-wrap">
+    <% @profiles.each do |profile| %>
+      <div class="card">
+        <%= cl_image_tag profile.photo.key if profile.photo.attached? %>
+        <h4><%= profile.name %></h4>
+        <p><%= link_to "See more", profile_path(profile) %></p>
+      </div>
+    <% end %>
+    </div>
+  </div>
 </div>
