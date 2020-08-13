@@ -1,7 +1,8 @@
 class User::FriendshipsController < ApplicationController
   def index
-    @asker_friendships = policy_scope([:user, Friendship]).where(asker: current_user)
-    @receiver_friendships = policy_scope([:user, Friendship]).where(receiver: current_user)
+    @friendships = policy_scope([:user, Friendship]).where(status: "accepted")
+    @asker_friendships = policy_scope([:user, Friendship]).where(asker: current_user).where(status: "pending")
+    @receiver_friendships = policy_scope([:user, Friendship]).where(receiver: current_user).where(status: "pending")
   end
 
   def update
@@ -9,7 +10,7 @@ class User::FriendshipsController < ApplicationController
     authorize [:user, @friendship]
     # raise
     if @friendship.update(friendship_params)
-      redirect_to  user_friendships_path(@friendship)
+      redirect_to  user_friendships_path
     else
       render 'user/friendships/index'
     end 
@@ -18,8 +19,9 @@ class User::FriendshipsController < ApplicationController
   def destroy
     @friendship = Friendship.find(params[:id])
     authorize [:user, @friendship]
+    # skip_authorization
     @friendship.destroy
-    redirect_to  user_friendships_path(@friendship)
+    redirect_to  user_friendships_path
   end
 
   private

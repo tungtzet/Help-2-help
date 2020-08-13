@@ -6,7 +6,7 @@ class User::FriendshipPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.receiver == user
   end
 
 
@@ -15,7 +15,7 @@ class User::FriendshipPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.asker == user
+    record.asker == user || record.receiver == user
   end
   
 end

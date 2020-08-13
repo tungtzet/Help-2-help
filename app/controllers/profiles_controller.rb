@@ -12,6 +12,8 @@ class ProfilesController < ApplicationController
     authorize @profile
     if Friendship.find_by(asker: current_user, receiver: @profile.user)
       @friendship = Friendship.find_by(asker: current_user, receiver: @profile.user)
+    elsif Friendship.find_by(receiver: current_user, asker: @profile.user)
+      @friendship = Friendship.find_by(receiver: current_user, asker: @profile.user)
     else
       @friendship = Friendship.new
     end
