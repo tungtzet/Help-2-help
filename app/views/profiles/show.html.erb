@@ -7,13 +7,13 @@
   <% if @profile.user != current_user %>
     <% if @friendship.status == "accepted" %>
       <div class="dropdown">
-      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Friend
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= link_to "Unfriend", user_friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
+        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Friend
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "Unfriend", user_friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
+        </div>
       </div>
-    </div>
     <% elsif @friendship.asker == current_user && @friendship.status == "pending" %>
       <div class="dropdown">
         <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
