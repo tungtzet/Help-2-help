@@ -1,44 +1,7 @@
 // Specific CSS for your home-page
 
 
-// .carousel-caption{
-//   transform: translate(-100%, -50%);
-// }
-.carousel-caption {
-width: 550px;
-left: 45%;
-top: 30% !important;
-transform: translateY(-50%);
-text-align: left;
-bottom: initial;
-}
 
-.carousel-inner {
-  height: 600px;
-  text-align: right;
-  position: relative;
-
-  h5 {
-    font-size: 40px;
-    position: absolute;
-    // top: -528px;
-    // right: 400px;
-    z-index: 1;
-    &:after {
-      content: "";
-      width: 250px;
-      z-index: -1;
-      height: 20px;
-      position: absolute;
-      bottom: -4px;
-      right: 24px;
-      background: #fff500;
-      opacity: 0.8;
-      // background-image: linear-gradient(rgba(238,232,9,0),rgba(238,232,9,0) 50%,rgba(238,232,9,.6) 51%,rgba(238,232,9,.6));
-      // transition: all .25s ease;
-    }
-  }
-}
 
 .btn-secondary {
   position:absolute;
