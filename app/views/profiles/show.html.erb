@@ -6,8 +6,14 @@
     <p><%= @profile.bio if @profile.bio %></p>
     <%# FRIENDSHIP BUTTON %>
   <% if @profile.user != current_user %>
-    <% if @friendship.asker == current_user %>
-      <%= button_tag @friendship.status, disabled: true, class: "btn btn-success" %>
+    <% if @friendship.status == "accepted" %>
+      <%= button_tag "Friend", disabled: true, class: "btn btn-success" %>
+    <% elsif @friendship.asker == current_user && @friendship.status == "pending" %>
+      <%= button_tag "Pending", disabled: true, class: "btn btn-success" %>
+    <% elsif @friendship.asker == current_user && @friendship.status == "rejected" %>
+      <button type="button" class="btn btn-outline-warning">Please make another request in 14 days. Or send this person a message.</button>
+    <% elsif @friendship.receiver == current_user && @friendship.status == "pending" %>
+      <%= button_tag "Respond", disabled: true, class: "btn btn-success" %>
     <% else %>
       <%= simple_form_for ([@profile, @friendship]) do |f| %>
         <%= f.input :status, input_html: {value: 'pending'} %>
