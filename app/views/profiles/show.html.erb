@@ -7,7 +7,14 @@
     <%# FRIENDSHIP BUTTON %>
   <% if @profile.user != current_user %>
     <% if @friendship.status == "accepted" %>
-      <%= button_tag "Friend", disabled: true, class: "btn btn-success" %>
+      <div class="dropdown">
+      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Friend
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Unfriend</a>
+      </div>
+    </div>
     <% elsif @friendship.asker == current_user && @friendship.status == "pending" %>
       <%= button_tag "Request Sent", disabled: true, class: "btn btn-success" %>
     <% elsif @friendship.asker == current_user && @friendship.status == "rejected" %>
