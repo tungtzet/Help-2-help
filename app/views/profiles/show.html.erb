@@ -1,5 +1,5 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @profile.photo.key if @profile.photo.attached? %>);">
-
+  <div class="container">
     <h1><%= @profile.name %></h1>
     <p><%= @profile.bio if @profile.bio %></p>
 
@@ -40,7 +40,7 @@
     <% end %>
   <% end %>
   <%# FRIENDSHIP BUTTON END %>
-  
+  </div>
 </div>
 
 
