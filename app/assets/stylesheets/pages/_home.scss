@@ -1,19 +1,17 @@
 // Specific CSS for your home-page
 
-// .live-with-modal {
-// .modal-dialog {
-//   max-width: 80% !important;
-// }
-//   .btn {
-//   color: #37464D;
-//   background-color: rgba(255, 245, 0, 0.80);
-//   font-family: 'Nunito', sans-serif;
-//   border-color: #CFD9D8;
-//   border-radius: 4px;
-//   box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
-// }
-// }
 
+// .carousel-caption{
+//   transform: translate(-100%, -50%);
+// }
+.carousel-caption {
+width: 550px;
+left: 45%;
+top: 30% !important;
+transform: translateY(-50%);
+text-align: left;
+bottom: initial;
+}
 
 .carousel-inner {
   height: 600px;
@@ -23,8 +21,8 @@
   h5 {
     font-size: 40px;
     position: absolute;
-    top: -528px;
-    right: 400px;
+    // top: -528px;
+    // right: 400px;
     z-index: 1;
     &:after {
       content: "";
@@ -42,38 +40,26 @@
   }
 }
 
+.btn-secondary {
+  position:absolute;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  top:75%;
+  left:5%;
+  color: #37464D;
+  background-color: rgba(255, 245, 0, 0.95);
+  font-family: 'Nunito', sans-serif;
+  border-color: #CFD9D8;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
+}
 
+.btn-secondary:hover {
+  background-color: yellow;
+  border-color: #CFD9D8;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
+  color: #37464D;
 
-
-// .carousel-caption h5 {
-//  position: absolute;
-//   top: 128px;
-//   right: 400px;
-//   z-index: 1;
-//   h5:after {
-//     // display: inline-block;
-//     // top: 128px;
-//     // right: 400px;
-//     content: "";
-//     width: 200px;
-//     z-index: -1;
-//     height: 20px;
-//     position: absolute;
-//     bottom: -4px;
-//     right: 24px;
-//     background: #fff500;
-//     opacity: 0.8;
-//   }
-// }
-
-//   h5 :after {
-//     content: "";
-//     width: 128px;
-//     z-index: -1;
-//     height: 16px;
-//     position: absolute;
-//     bottom: -2px;
-//     right: 8px;
-//     background: #fff500;
-//     opacity: 0.8;
-// }
+  }
