@@ -1,13 +1,9 @@
-    <%# simple_form_for([:user, friendship], remote: true) do |f| %>
-        <%# f.input :status, as: :select, collection: ["accepted", "rejected"] %>
-        <%# f.submit 'Confirm', class: "btn btn-warning" %>
-    <%# end %>
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @profile.photo.key if @profile.photo.attached? %>);">
   <div class="container">
     <h1><%= @profile.name %></h1>
     <p><%= @profile.bio if @profile.bio %></p>
-    <%# FRIENDSHIP BUTTON %>
+
+  <%# FRIENDSHIP BUTTON START %>
   <% if @profile.user != current_user %>
     <% if @friendship.status == "accepted" %>
       <div class="dropdown">
@@ -36,20 +32,14 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <%= link_to "Accept", user_friendship_path(@friendship, friendship: { status: 'accepted' }), method: :patch, class: "dropdown-item" %>
-        <%= link_to "Deny", user_friendship_path(@friendship, friendship: { status: 'rejected' }), method: :patch, class: "dropdown-item" %>
+        <%= link_to "Deny", user_friendship_path(@friendship, friendship: { status: 'rejected' }), data: { confirm: 'Are you sure?'}, method: :patch, class: "dropdown-item" %>
       </div>
     </div>
     <% else %>
-      <%= simple_form_for ([@profile, @friendship]) do |f| %>
-        <%= f.input :status, input_html: {value: 'pending'} %>
-        <%= f.submit 'Add Friend', class: "btn btn-primary" %>
-        <%# f.button :button, 'Add Friend', type: 'submit', name: 'status', value: 'pending', class: "btn btn-primary" %>
-        <%# f.submit "Add Friend", name: "status", value: "pending", class: "btn btn-primary" %>
-        <%# hidden_field_tag(:status, 'pending') %>
-      <% end %>
+      <%= link_to "Add Friend", profile_friendships_path([@profile, @friendship], friendship: { status: 'pending' }), method: :post, remote: true, class: "btn btn-primary" %>
     <% end %>
   <% end %>
-
+  <%# FRIENDSHIP BUTTON END %>
   </div>
 </div>
 
