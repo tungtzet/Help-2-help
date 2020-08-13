@@ -17,6 +17,24 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def update
+    @friendship = Friendship.find(params[:id])
+    authorize @friendship
+    if @friendship.update(friendship_params)
+      redirect_to  profile_path(@friendship.asker.profile)
+    else
+      render 'profiles/show'
+    end 
+  end
+
+  def destroy
+    @friendship = Friendship.find(params[:id])
+    authorize @friendship
+    profile = current_user == @friendship.receiver ? @friendship.asker.profile : @friendship.receiver.profile
+    @friendship.destroy
+    redirect_to  profile_path(profile)
+  end
+
   private
   def friendship_params
     params.require(:friendship).permit(:status)

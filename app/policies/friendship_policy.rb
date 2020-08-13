@@ -9,6 +9,10 @@ class FriendshipPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record.receiver == user
+  end
+
   def destroy?
     record.asker == user || record.receiver == user
   end
