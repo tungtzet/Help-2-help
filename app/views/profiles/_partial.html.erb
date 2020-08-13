@@ -1,10 +1,12 @@
 <br>
-<% @posts.each do |post| %>
+<p>
+<div class="row justify-content-center">
 
-<br>
+  <% @posts.each do |post| %>
 
-<div class="card-trip" style="width: 25rem;">
-
+  <br>
+  <div class="card-trip" style="width: 29rem;">
+   
     <%= cl_image_tag post.photos.first.key if post.photos.attached? %>
     
     <div class="card-trip-infos justify-content-space-between">
@@ -21,12 +23,14 @@
         <%= link_to "✏️", edit_post_path(post) %>
       </p>
    
+      </div>
+
+
     </div>
 
-
- </div>
-  <br>
- <% end %>
+     <br>
+     <% end %>
 
 
 
+</div>
