@@ -4,9 +4,11 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = policy_scope(Profile)
+    
   end
 
   def show
+    @posts = Post.all
     authorize @profile
     if Friendship.find_by(asker: current_user, receiver: @profile.user)
       @friendship = Friendship.find_by(asker: current_user, receiver: @profile.user)

@@ -1,7 +1,6 @@
-
-
+<div class="container">
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @profile.photo.key if @profile.photo.attached? %>);">
-  <div class="container">
+
     <h1><%= @profile.name %></h1>
     <p><%= @profile.bio if @profile.bio %></p>
     <%# FRIENDSHIP BUTTON %>
@@ -22,8 +21,14 @@
   </div>
 </div>
 
-<div class="container">
 
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+  <br>
+  <h1>Profile</h1>
+  <br>
   <h5>Languages</h5>
   <p><%= @profile.native_language if @profile.native_language %>
   <% if @profile.second_language? %>
@@ -36,24 +41,14 @@
      <p>I´m living with: <%= disease.name %> </p>
      <% end %>
 
-  <%= link_to "See others", profiles_path %>
+  <%= link_to "👥", profiles_path %>
   <% if @profile.user == current_user %>
-    <%= link_to "Edit", edit_profile_path %>
+    <%= link_to "✏️", edit_profile_path %>
   <% end %>
-
+  <br>
+  <br>
+  <h1>My Posts </h1>
+  <%= render 'partial', post: @post %>
+ </div>
+ </div>
 </div>
-
-
-<div class="container">
-  <h2>You living with it? Us Too.</h2>
-
-  <div class="cards my-5">
-    <div class="card-trip">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597147974/Women-together_rs9u6c.jpg" />
-      <div class="card-trip-infos">
-        <h2>connect</h2>
-        <div>
-          <p>Short description here!</p>
-        </div>
-      </div>
-    </div>

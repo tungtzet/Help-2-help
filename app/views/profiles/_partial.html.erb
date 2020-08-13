@@ -1,0 +1,32 @@
+<br>
+<% @posts.each do |post| %>
+
+<br>
+
+<div class="card-trip" style="width: 25rem;">
+
+    <%= cl_image_tag post.photos.first.key if post.photos.attached? %>
+    
+    <div class="card-trip-infos justify-content-space-between">
+      <div>
+        <h2><%= post.title %></h2>
+        <p><%= post.content %></p>
+      </div>
+  
+  
+     
+      <p> 
+        <%= link_to "👁️", post_path(post) %>
+        <%= link_to "🗑️", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
+        <%= link_to "✏️", edit_post_path(post) %>
+      </p>
+   
+    </div>
+
+
+ </div>
+  <br>
+ <% end %>
+
+
+
