@@ -1,4 +1,7 @@
-
+    <%# simple_form_for([:user, friendship], remote: true) do |f| %>
+        <%# f.input :status, as: :select, collection: ["accepted", "rejected"] %>
+        <%# f.submit 'Confirm', class: "btn btn-warning" %>
+    <%# end %>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @profile.photo.key if @profile.photo.attached? %>);">
   <div class="container">
@@ -12,30 +15,37 @@
         Friend
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Unfriend</a>
+        <%= link_to "Unfriend", user_friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
       </div>
     </div>
     <% elsif @friendship.asker == current_user && @friendship.status == "pending" %>
-      <%= button_tag "Request Sent", disabled: true, class: "btn btn-success" %>
-    <% elsif @friendship.asker == current_user && @friendship.status == "rejected" %>
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          &check; Request Sent
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "Cancel", user_friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
+        </div>
+      </div>
+    <% elsif @friendship.status == "rejected" %>
       <button type="button" class="btn btn-outline-warning">Please make another request in 14 days. Or send this person a message.</button>
     <% elsif @friendship.receiver == current_user && @friendship.status == "pending" %>
       <div class="dropdown">
-      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Respond
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Accept</a>
-        <a class="dropdown-item" href="#">Reject</a>
+        <%= link_to "Accept", user_friendship_path(@friendship, friendship: { status: 'accepted' }), method: :patch, class: "dropdown-item" %>
+        <%= link_to "Deny", user_friendship_path(@friendship, friendship: { status: 'rejected' }), method: :patch, class: "dropdown-item" %>
       </div>
     </div>
     <% else %>
       <%= simple_form_for ([@profile, @friendship]) do |f| %>
         <%= f.input :status, input_html: {value: 'pending'} %>
-        <%# hidden_field_tag(:status, 'pending') %>
         <%= f.submit 'Add Friend', class: "btn btn-primary" %>
         <%# f.button :button, 'Add Friend', type: 'submit', name: 'status', value: 'pending', class: "btn btn-primary" %>
         <%# f.submit "Add Friend", name: "status", value: "pending", class: "btn btn-primary" %>
+        <%# hidden_field_tag(:status, 'pending') %>
       <% end %>
     <% end %>
   <% end %>
@@ -63,18 +73,3 @@
   <% end %>
 
 </div>
-
-
-<div class="container">
-  <h2>You living with it? Us Too.</h2>
-
-  <div class="cards my-5">
-    <div class="card-trip">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597147974/Women-together_rs9u6c.jpg" />
-      <div class="card-trip-infos">
-        <h2>connect</h2>
-        <div>
-          <p>Short description here!</p>
-        </div>
-      </div>
-    </div>

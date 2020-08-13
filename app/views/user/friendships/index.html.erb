@@ -1,5 +1,5 @@
 <div class="container">
-<h1>My Friendship</h1>
+<h1 class="my-5">My Friendships</h1>
 
 
 
@@ -13,7 +13,7 @@
     <%= simple_form_for([:user, friendship], remote: true) do |f| %>
         <%= f.input :status, as: :select, collection: ["accepted", "rejected"] %>
         <%= f.submit 'Confirm', class: "btn btn-warning" %>
-      <% end %>
+    <% end %>
   </div>
 <% end %>
 </div>
