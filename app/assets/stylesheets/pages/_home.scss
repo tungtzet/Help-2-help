@@ -14,3 +14,66 @@
 }
 }
 
+
+.carousel-inner {
+  height: 600px;
+  text-align: right;
+  position: relative;
+
+  h5 {
+    font-size: 40px;
+    position: absolute;
+    top: -528px;
+    right: 400px;
+    z-index: 1;
+    &:after {
+      content: "";
+      width: 250px;
+      z-index: -1;
+      height: 20px;
+      position: absolute;
+      bottom: -4px;
+      right: 24px;
+      background: #fff500;
+      opacity: 0.8;
+      // background-image: linear-gradient(rgba(238,232,9,0),rgba(238,232,9,0) 50%,rgba(238,232,9,.6) 51%,rgba(238,232,9,.6));
+      // transition: all .25s ease;
+    }
+  }
+}
+
+
+
+
+// .carousel-caption h5 {
+//  position: absolute;
+//   top: 128px;
+//   right: 400px;
+//   z-index: 1;
+//   h5:after {
+//     // display: inline-block;
+//     // top: 128px;
+//     // right: 400px;
+//     content: "";
+//     width: 200px;
+//     z-index: -1;
+//     height: 20px;
+//     position: absolute;
+//     bottom: -4px;
+//     right: 24px;
+//     background: #fff500;
+//     opacity: 0.8;
+//   }
+// }
+
+//   h5 :after {
+//     content: "";
+//     width: 128px;
+//     z-index: -1;
+//     height: 16px;
+//     position: absolute;
+//     bottom: -2px;
+//     right: 8px;
+//     background: #fff500;
+//     opacity: 0.8;
+// }
