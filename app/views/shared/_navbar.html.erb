@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://res.cloudinary.com/dvf1ekp5b/image/upload/v1596637861/SportRentlogo_squbnx.png" %>
+    <%= image_tag "https://res.cloudinary.com/dvf1ekp5b/image/upload/v1597333510/logohelp2help_dds4nw.png" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,11 +31,17 @@
               <%= link_to "Create A Profile", new_profile_path, class: "btn" %>
             <% end %>
           </li>
-        <% if current_user.profile && current_user.profile.photo.attached? %>
-          <%= cl_image_tag current_user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% else %>
-          <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
+        
+        <li class="nav-item dropdown">
+          <% if current_user.profile && current_user.profile.photo.attached? %>
+            <%= cl_image_tag current_user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>          
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
   
         <% else %>
           <li class="nav-item">

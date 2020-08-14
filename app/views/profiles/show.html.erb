@@ -11,7 +11,7 @@
           Friend
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to "Unfriend", user_friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
+          <%= link_to "Unfriend", friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
         </div>
       </div>
     <% elsif @friendship.asker == current_user && @friendship.status == "pending" %>
@@ -20,7 +20,7 @@
           &check; Request Sent
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to "Cancel", user_friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
+          <%= link_to "Cancel", friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
         </div>
       </div>
     <% elsif @friendship.status == "rejected" %>
@@ -31,8 +31,8 @@
         Respond
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= link_to "Accept", user_friendship_path(@friendship, friendship: { status: 'accepted' }), method: :patch, class: "dropdown-item" %>
-        <%= link_to "Deny", user_friendship_path(@friendship, friendship: { status: 'rejected' }), data: { confirm: 'Are you sure?'}, method: :patch, class: "dropdown-item" %>
+        <%= link_to "Accept", friendship_path(@friendship, friendship: { status: 'accepted' }), method: :patch, class: "dropdown-item" %>
+        <%= link_to "Deny", friendship_path(@friendship, friendship: { status: 'rejected' }), data: { confirm: 'Are you sure?'}, method: :patch, class: "dropdown-item" %>
       </div>
     </div>
     <% else %>

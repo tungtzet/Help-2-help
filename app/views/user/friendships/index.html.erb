@@ -1,7 +1,14 @@
 <div class="container">
-  <h1 class="my-5">My Friendships</h1>
 
-  <h5>Pending Friend Requests</h5>
+  <div class="circle"></div>
+  <h1 class="my-3 h2h-heading">My Friendships</h1>
+  <div class="quotes mb-5">
+    <blockquote>Friendship is born at that moment when one person says to another, 
+    ‘What! You too? I thought I was the only one.</blockquote>
+    <cite>- C.S. Lewis</cite>
+  </div>
+
+  <h3>These are still open</h3>
   <% @receiver_friendships.each do |friendship| %>
   <div class="notification">
     <% if friendship.asker.profile.photo.attached? %>
@@ -11,7 +18,7 @@
     <% end %>
     <div class="notification-content">
       <span class="badge badge-warning"><%= link_to friendship.asker.profile.name, profile_path(friendship.asker.profile) %></span>
-      <p>sent you a friend request on <%= friendship.created_at %></p>
+      <p>wants to get in touch with me. I will respond with an open heart.</p> <%# friendship.created_at %>
     </div>
 
     <div class="notification-actions">
@@ -30,7 +37,7 @@
     <% end %>
     <div class="notification-content">
       <span class="badge badge-warning"><%= link_to friendship.receiver.profile.name, profile_path(friendship.receiver.profile) %></span>
-      <p>to whom <strong>you</strong> sent a friend request on <%= friendship.created_at %></p>
+      <p>to whom I have reached out. I know a good friend goes a long way. I'll will wait.<%# friendship.created_at %></p>
     </div>
 
     <div class="notification-actions">
@@ -41,7 +48,7 @@
 
 
 
-  <h5 class="mt-5">My friends</h5>
+  <h3 class="mt-5">My friends</h3>
   <div class="cards mb-5">
   <% @friendships.each do |friendship| %>
     <% profile = current_user == friendship.receiver ? friendship.asker.profile : friendship.receiver.profile %>
