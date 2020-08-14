@@ -93,3 +93,60 @@
   }
 }
 
+
+
+.card-profile-index {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  width: 30%;
+}
+
+.card-profile-index img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  border-radius:60px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-profile-index h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-profile-index p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-profile-index .card-profile-index-infos {
+  padding: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   attr_accessor :disease
   belongs_to :user
-  has_many :user_diseases
+  has_many :user_diseases, dependent: :destroy
   has_many :diseases, through: :user_diseases
   has_one_attached :photo
 
