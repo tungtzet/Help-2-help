@@ -1,4 +1,5 @@
 <div class="container">
+
 <div class="circle"></div>
   <h1 class="my-3 h2h-heading">You're not the only one</h1>
   <div class="quotes mb-5">
@@ -6,15 +7,18 @@
     <cite>- Brandi Carlile</cite>
   </div>
 
-  <div class="col-12 col-lg-7">
+  <div class="col-12 col-lg-12">
     <div class="cards d-flex flex-wrap">
-    <% @profiles.each do |profile| %>
-      <div class="card">
+      <% @profiles.each do |profile| %>
+      <div class="card-profile-index">
         <%= cl_image_tag profile.photo.key if profile.photo.attached? %>
-        <h4><%= profile.name %></h4>
-        <p><%= link_to "See more", profile_path(profile) %></p>
+        <div class="card-profile-index-infos">
+          <h5><%= profile.name %></h5>
+          <h6> I have a disease </h6>
+          <p><%= link_to "See more", profile_path(profile) %></p>
+        </div>
       </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>
