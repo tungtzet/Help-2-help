@@ -10,6 +10,13 @@ text-align: left;
 bottom: initial;
 }
 
+.carousel-inner .item .myButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+}
+
 .carousel-inner {
   height: 600px;
   text-align: right;
