@@ -1,7 +1,11 @@
 class ProfilePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      if @params.present?
+        scope.global_search(@params)
+      else
+        scope.all
+      end 
     end
   end
 

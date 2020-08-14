@@ -3,8 +3,9 @@ class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
+    @params = params[:disease]
     @profiles = policy_scope(Profile)
-    
+    @profiles = policy_scope(Profile).global_search(@params).order(created_at: :desc) if @params.present?
   end
 
   def show
