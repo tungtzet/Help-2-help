@@ -10,7 +10,7 @@
   <div class="col-12 col-lg-12">
     <div class="cards d-flex flex-wrap">
       <% @profiles.each do |profile| %>
-      <div class="card-profile-index">
+      <div class="card-profile-index col-12 col-lg-6">
         <%= cl_image_tag profile.photo.key if profile.photo.attached? %>
         <div class="card-profile-index-infos">
           <h5><%= profile.name %></h5>
