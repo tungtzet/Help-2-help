@@ -92,7 +92,9 @@
     }
   }
 }
-
+* {
+  transition: all 0.3s ease-out;
+}
 
 
 .card-profile-index {
@@ -104,6 +106,16 @@
   align-items: center;
   border-radius: 60px;
   width: 30%;
+  padding-left: 0px;
+    overflow: hidden;
+
+  }
+
+ .card-profile-index:hover {
+      transform: scale(1.1);
+    background-color: #fff500;
+    border-radius: 32px;
+    transition: transform 0.25s ease-out;
 }
 
 .card-profile-index img {
@@ -131,7 +143,6 @@
 .card-profile-index .card-profile-index-infos {
   padding: 16px;
 }
-
 
 
 
