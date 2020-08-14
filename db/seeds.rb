@@ -27,7 +27,7 @@ avatar_names = ["felipeandreslugosalazar",
   "paul-wittchen",
   "zcallanan"]
 
-letters = ("a".."z").to_a
+letters = ("a".."b").to_a
 url = 'https://www.cdc.gov/DiseasesConditions/az/'
 
 letters.each do |letter|
