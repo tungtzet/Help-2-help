@@ -8,11 +8,11 @@
 
 require 'open-uri'
 
-UserDisease.destroy_all
-Friendship.destroy_all
-User.destroy_all
-Profile.destroy_all
-Disease.destroy_all
+# UserDisease.destroy_all
+# Friendship.destroy_all
+# User.destroy_all
+# Profile.destroy_all
+# Disease.destroy_all
 
 avatar_names = ["felipeandreslugosalazar",
   "petermagpantay",
@@ -48,6 +48,7 @@ languages_second = ['Chinese', 'Russian', 'Dutch' , 'Greek']
   image = "#{avatar}#{avatar_selected}"
   user = User.create!(email: Faker::Internet.email, password: '123456')
   profile = Profile.create!(user: user, address: "#{Faker::Address.city}, #{Faker::Address.country}", age: rand(18..99), native_language: languages.sample, second_language: languages_second.sample, bio: Faker::Marketing.buzzwords, name: Faker::Name.name)
+  UserDisease.create!(profile: profile, disease: Disease.all.sample)
   file = URI.open(image)
   puts image
   profile.photo.attach(io: file, filename: profile.name, content_type: 'image/jpg')
