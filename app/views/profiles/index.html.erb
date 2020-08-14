@@ -14,7 +14,7 @@
         <%= cl_image_tag profile.photo.key if profile.photo.attached? %>
         <div class="card-profile-index-infos">
           <h5><%= profile.name %></h5>
-          <h6> I have a disease </h6>
+          <h6> <%= profile.diseases.first.name %> </h6>
           <p><%= link_to "See more", profile_path(profile) %></p>
         </div>
       </div>
