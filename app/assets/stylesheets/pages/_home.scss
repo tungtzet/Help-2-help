@@ -3,26 +3,29 @@
 
 
 
-// .btn-secondary {
-//   position:absolute;
-//   padding-left: 40px;
-//   padding-right: 40px;
-//   padding-top: 8px;
-//   padding-bottom: 8px;
-//   top:75%;
-//   left:5%;
-//   color: #37464D;
-//   background-color: rgba(255, 245, 0, 0.95);
-//   font-family: 'Nunito', sans-serif;
-//   border-color: #CFD9D8;
-//   border-radius: 8px;
-//   box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
-// }
+.btn-secondary {
+  position:absolute;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  top:75%;
+  left:5%;
+  color: #37464D;
+  background-color: rgba(255, 245, 0, 0.95);
+  font-family: 'Nunito', sans-serif;
+  border-color: #CFD9D8;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
+}
 
 .btn-secondary:hover {
-  background-color: yellow;
+  background-color: #fff500;
   border-color: #CFD9D8;
   box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
   color: #37464D;
-
   }
+
+blockquote:before, blockquote:after {
+  color: #fff500 !important;
+}

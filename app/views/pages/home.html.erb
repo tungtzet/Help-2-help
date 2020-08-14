@@ -1,8 +1,4 @@
-<!-- <div class="banner mb-5" id="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('https://res.cloudinary.com/tungtzet/image/upload/v1597141144/hugging-each-other_new_a7nz0r.jpg');">
-  <div class="container">
-    <h1>You are not alone</h1>
-  </div>
-</div> -->
+<%= render 'modal' %>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -46,8 +42,8 @@
         <br>
         <p>
             <button type="button" class="myButton btn-secondary">Sign Up</button>
-         </p>     
-      </div>  
+         </p>
+      </div>
 
     </div>
   </div>
@@ -61,6 +57,53 @@
   </a>
 </div>
 
+
+
+<div class="container">
+  <h1 class="my-3 h2h-heading">Love is all around</h1>
+    <div class="quotes mb-5">
+      <blockquote>Love is all around us all the time. We just have to know where to look and find.
+      There's always someone out there who's been through what you're been through.</blockquote>
+    </div>
+</div>
+
+
+<div class="container">
+  <%= form_tag profiles_path, method: :get do %>
+    <div class="form-row">
+      <div class="col">
+        <%= text_field_tag :disease,
+          params[:disease],
+          class: "form-control",
+          placeholder: "What are you living with?"
+        %>
+      </div>
+
+      <%# <div class="col-3"> %>
+        <%# text_field_tag :address,
+          params[:address],
+          class: "form-control",
+          id: "address-search-home",
+          placeholder: "Where?"
+        %>
+      <%# </div> %>
+      <div class="col">
+        <%= submit_tag "Find Us!", class: "btn btn-secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+<br>
+<br>
+
+
+<div class="banner mb-5" id="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('https://res.cloudinary.com/dvf1ekp5b/image/upload/v1597410846/Schermata_2020-07-19_alle_22.37.27_falopx.png');">
+  <div class="container">
+    <!-- <h1>You are not alone</h1> -->
+  </div>
+</div>
 
 
 <div class="container mt-5">
@@ -96,43 +139,6 @@
     </div>
   </div>
 </div>
-
-<div class="container">
-  <h1 class="my-3 h2h-heading">Love is all around</h1>
-    <div class="quotes mb-5">
-      <blockquote>Love is all around us all the time. We just have to know where to look and find. 
-      There's always someone out there who's been through what you're been through.</blockquote>
-    </div>
-</div>
-
-<div class="container">
-  <%= form_tag profiles_path, method: :get do %>
-    <div class="form-row">
-      <div class="col">
-        <%= text_field_tag :disease,
-          params[:disease],
-          class: "form-control",
-          placeholder: "What are you living with?"
-        %>
-      </div>
-
-      <%# <div class="col-3"> %>
-        <%# text_field_tag :address,
-          params[:address],
-          class: "form-control",
-          id: "address-search-home",
-          placeholder: "Where?"
-        %>
-      <%# </div> %>
-      <div class="col">
-        <%= submit_tag "Find Us!", class: "btn btn-secondary" %>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-<%= render 'modal' %>
-
 
 
 
