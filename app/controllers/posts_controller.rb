@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
-  before_action :set_posts, only: [:show, :update, :edit]
+  before_action :set_post, only: [:show, :update, :edit]
   # Lets have a look at all posts
   def index
     @posts = policy_scope(Post)
+    # .where.not(user: current_user)
+    # raise
   end
 
-  # Lets have a look at some specific posts
   def show
     authorize @post
   end
@@ -43,13 +44,16 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def set_posts
+  def set_post
     @post = Post.find(params[:id])
   end
+
 
   private
 
   def post_params
     params.require(:post).permit(:title, :content, :user_id, photos: [])
   end
+
+
 end

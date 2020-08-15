@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :friendships_as_receiver, class_name: "Friendship", source: :friendships, foreign_key: :receiver_id, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  def is_friend_with?(another_user)
+    friendship = Friendship.find_by(asker: self, receiver: another_user) || Friendship.find_by(receiver: self, asker: another_user)
+    return friendship && friendship.status == "accepted"    
+  end
 end

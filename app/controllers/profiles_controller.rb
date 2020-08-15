@@ -19,7 +19,6 @@ class ProfilesController < ApplicationController
     else
       @friendship = Friendship.new
     end
-    # raise
   end
 
   def new
@@ -31,7 +30,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user = current_user
     if @profile.save
-      UserDisease.create(profile: @profile, disease: Disease.find(params[:profile][:disease]))
+      # UserDisease.create(profile: @profile, disease: Disease.find(params[:profile][:disease]))
       redirect_to profile_path(@profile)
     else
       render new
