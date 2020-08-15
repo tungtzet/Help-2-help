@@ -9,8 +9,9 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @posts = Post.all
+    # User.joins(:posts).where(posts: { user: current_user })
     authorize @profile
+    @posts = Post.where(user: @profile.user)
     if Friendship.find_by(asker: current_user, receiver: @profile.user)
       @friendship = Friendship.find_by(asker: current_user, receiver: @profile.user)
     elsif Friendship.find_by(receiver: current_user, asker: @profile.user)
