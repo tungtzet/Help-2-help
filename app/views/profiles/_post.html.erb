@@ -3,8 +3,6 @@
 <div class="row justify-content-center">
 
   <% posts.each do |post| %>
-
-  <br>
   <div class="card-trip" style="width: 29rem;">
    
     <%= cl_image_tag post.photos.first.key if post.photos.attached? %>
@@ -14,22 +12,20 @@
         <h2><%= post.title %></h2>
         <p><%= post.content %></p>
       </div>
-  
-  
-     
+
       <p> 
         <%= link_to "👁️", post_path(post) %>
-        <%= link_to "🗑️", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
-        <%= link_to "✏️", edit_post_path(post) %>
+        <% if post.user == current_user %>
+          <%= link_to "🗑️", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
+          <%= link_to "✏️", edit_post_path(post) %>
+        <% end %>
       </p>
    
       </div>
 
 
     </div>
-
-     <br>
-     <% end %>
+  <% end %>
 
 
 

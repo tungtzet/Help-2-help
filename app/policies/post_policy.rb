@@ -22,7 +22,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    update?
+    record.user == user
   end
 
   def create?
