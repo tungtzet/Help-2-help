@@ -6,11 +6,13 @@ class ProfilesController < ApplicationController
     @params = params[:disease]
     @profiles = policy_scope(Profile)
     @profiles = policy_scope(Profile).global_search(@params).order(created_at: :desc) if @params.present?
+    # raise
   end
 
   def show
-    @posts = Post.all
+    # User.joins(:posts).where(posts: { user: current_user })
     authorize @profile
+    @posts = Post.where(user: @profile.user)
     if Friendship.find_by(asker: current_user, receiver: @profile.user)
       @friendship = Friendship.find_by(asker: current_user, receiver: @profile.user)
     elsif Friendship.find_by(receiver: current_user, asker: @profile.user)
@@ -18,7 +20,6 @@ class ProfilesController < ApplicationController
     else
       @friendship = Friendship.new
     end
-    # raise
   end
 
   def new
@@ -30,7 +31,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user = current_user
     if @profile.save
-      UserDisease.create(profile: @profile, disease: Disease.find(params[:profile][:disease]))
+      # UserDisease.create(profile: @profile, disease: Disease.find(params[:profile][:disease]))
       redirect_to profile_path(@profile)
     else
       render new

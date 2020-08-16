@@ -29,7 +29,7 @@
   font-weight: bold;
 }
 .notification .notification-actions {
-  opacity: 0;
+  opacity: 0.6;
   display: flex;
   transition: ease .3s;
 }
@@ -45,5 +45,6 @@
 }
 
 .notification .notification-actions a:hover {
-  color: #555555;
+  color: #fff500;
+  text-decoration: none;
 }
