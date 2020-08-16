@@ -5,7 +5,11 @@
   <% posts.each do |post| %>
   <div class="card-trip" style="width: 29rem;">
    
-    <%= cl_image_tag post.photos.first.key if post.photos.attached? %>
+    <%  if post.photos.attached? %>
+      <%= cl_image_tag post.photos.first.key %>
+    <% else %>
+      <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
+    <% end %>
     
     <div class="card-trip-infos justify-content-space-between">
       <div>

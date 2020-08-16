@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :edit]
   # Lets have a look at all posts
   def index
-    @posts = policy_scope(Post)
+    sql_join = "INNER JOIN users ON posts.user_id=users.id INNER JOIN friendships 
+    ON (users.id=friendships.receiver_id AND friendships.asker_id=#{current_user.id})
+    OR (users.id=friendships.asker_id AND friendships.receiver_id=#{current_user.id})"
+    sql_condition = "friendships.status='accepted'"
+    @posts = policy_scope(Post).joins(sql_join).where(sql_condition)
     # .where.not(user: current_user)
     # raise
   end
