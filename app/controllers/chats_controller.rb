@@ -5,6 +5,7 @@ class ChatsController < ApplicationController
   end
 
   def show
+    @chats = policy_scope(Chat).includes(:user_chats).where(user_chats: {user: current_user});
     @chat = Chat.find(params[:id])
     @partner_profile = current_user == @chat.users.first ? @chat.users.last.profile : @chat.users.first.profile
     @message = Message.new
