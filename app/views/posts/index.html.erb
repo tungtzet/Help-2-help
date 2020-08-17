@@ -5,6 +5,7 @@
 <div class="d-flex justify-content-around flex-wrap">
 
   <% @posts.each do |post| %>
+  <%= link_to post_path(post), class: "custom-card" do  %>
   <div class="card-trip mb-5" style="width: 20rem; margin-top:25px;">
    
     <%  if post.photos.attached? %>
@@ -15,7 +16,8 @@
     <% end %>
     
    
-   <p> <%= link_to "👁️", post_path(post) %>  <i class="far fa-clock pr-2"></i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></p>
+   <p> </p>
+   <div class="d-flex justify-content-between">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></div>
     <div class="card-trip-infos justify-content-between">
       <div>
         
@@ -29,14 +31,15 @@
         <% else %>
           <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "rounded-circle mr-3"%>
         <% end %> 
-        <p><%= post.content %></p>
+        
+        <p style="unstyled;"><%= post.content %></p>
         <!-- Button -->      
       </div>
      
      <div>
-        <i class="fas fa-share-alt text-muted float-right p-1 my-1 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+        <i class="fas fa-share-alt text-white float-right p-1 my-1 card-trip-user card-trip-likes"  data-toggle="tooltip" data-placement="top" title="Share this post"></i>
         <p></p>
-        <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i> 
+        <i class="fas fa-heart text-white float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i> 
         <% if post.user == current_user %>
           <%= link_to "🗑️", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
           <%= link_to "✏️", edit_post_path(post) %>
@@ -51,8 +54,6 @@
 
     </div>
   <% end %>
-
-
-
+ <% end %>
 </div>
 
