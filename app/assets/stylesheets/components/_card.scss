@@ -98,6 +98,7 @@
 
 
 .card-profile-index {
+  cursor: pointer;
   overflow: hidden;
   height: 120px;
   background: white;
@@ -105,17 +106,18 @@
   display: flex;
   align-items: center;
   border-radius: 60px;
-  width: 30%;
+  max-width: 500px;
+  min-width: 500px;
   padding-left: 0px;
-    overflow: hidden;
-
-  }
+  overflow: hidden;
+}
 
  .card-profile-index:hover {
-    transform: scale(1.1);
-    background-color: rgba(255, 245, 0, 0.3);
+    transform: scale(1.01);
+    background-color: #fff5000d;
     // border-radius: 32px;
     transition: transform 0.25s ease-out;
+    text-decoration: none;
 }
 
 .card-profile-index img {
@@ -130,6 +132,8 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  text-decoration: none;
+
 }
 
 .card-profile-index p {
@@ -138,16 +142,16 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  text-decoration: none;
 }
 
 .card-profile-index .card-profile-index-infos {
   padding: 16px;
 }
 
-
-
-
-
+.card-profile-index-infos h5, h6 {
+  color: black !important;
+}
 
 
 
