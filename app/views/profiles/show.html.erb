@@ -15,7 +15,7 @@
 
     <!-- CITY -->
     <div  class="container">
-      <h7> <i class="fas fa-map-marker-alt"></i> <%= @profile.address if @profile.address %> </h7>
+      <h6> <i class="fas fa-map-marker-alt"></i> <%= @profile.address if @profile.address %> </h6>
     </div>
 
     <!-- BIO -->
@@ -93,6 +93,16 @@
 </div>
 
 <%# FRIENDSHIP BUTTON END %>
+
+ <%# CHAT BUTTON START %>
+  <% if @profile.user != current_user %>
+    <% if @chat.id.nil? %>
+      <%= link_to "Message", profile_chats_path([@profile, @chat]), method: :post, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Message", chat_path(@chat), class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
+  <%# CHAT BUTTON END %>
 <hr id="linebrake">
 
 <div class="container" id="mypost" style="display: flex">
