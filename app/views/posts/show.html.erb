@@ -12,7 +12,7 @@
       <h2><%= @post.title %></h2>
       <p><%= @post.content %></p>
     </div>
-     <%= cl_image_tag @post.user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+     <%= cl_image_tag @post.photos, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
   </div>
 </div>
 </div>
