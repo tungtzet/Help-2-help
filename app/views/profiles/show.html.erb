@@ -1,8 +1,8 @@
 <div class="flex-container" id="profile-bio">
 
   <!-- IMG PROFILE -->
-  <div class="flex-contailer">
-    <img src="<%= cl_image_path @profile.photo.key if @profile.photo.attached? %>"  class="img-thumbnail">
+  <div class="flex-contailer" >
+    <img src="<%= cl_image_path @profile.photo.key, width: 300, height: 300, gravity: :face, crop: :fill if @profile.photo.attached? %>"  class="img-thumbnail">
   </div>
 
   <!-- TEXT -->
