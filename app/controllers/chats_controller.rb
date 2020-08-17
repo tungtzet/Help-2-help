@@ -1,4 +1,9 @@
 class ChatsController < ApplicationController
+  
+  def index
+    @chats = policy_scope(Chat).includes(:user_chats).where(user_chats: {user: current_user});
+  end
+
   def show
     @chat = Chat.find(params[:id])
     @message = Message.new

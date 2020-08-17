@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :friendships, only: [:index, :destroy, :update]
   end
 
-  resources :chats, only: :show do
+  resources :chats, only: [:show, :index] do
     resources :messages, only: :create
   end
 
