@@ -12,23 +12,23 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
          <li class="nav-item">
-          <%= link_to "Post a Message", new_post_path, class: "btn" %>
+          <%= link_to "", new_post_path, class: "fas fa-paper-plane btn" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Show all Posts", posts_path, class: "btn" %>
+        <li class="nav-item" >
+         <%= link_to "", posts_path, class: "fas fa-rss btn" %>
         </li>
         <li class="nav-item">
           <%= link_to "My Chats", chats_path, class: "btn" %>
         </li>
         <li class="nav-item">
          <li>
-          <%= link_to "My Friendships", user_friendships_path, class: "btn" %>
+          <%= link_to "", user_friendships_path, class: "fas fa-users btn" %>
         </li>
            <li>
             <% if current_user.profile %>
-              <%= link_to "My Profile", profile_path(current_user.profile), class: "btn" %>
+              <%= link_to "", profile_path(current_user.profile), class: "btn fas fa-user-circle" %>
             <% else %>
-              <%= link_to "Create A Profile", new_profile_path, class: "btn" %>
+              <%= link_to "Create A Profile", new_profile_path, class: "btn fas fa-user-circle" %>
             <% end %>
           </li>
         
