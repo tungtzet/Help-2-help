@@ -6,6 +6,7 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find(params[:id])
+    @partner_profile = current_user == @chat.users.first ? @chat.users.last.profile : @chat.users.first.profile
     @message = Message.new
     authorize @chat
   end
