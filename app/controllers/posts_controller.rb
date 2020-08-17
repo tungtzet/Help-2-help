@@ -7,6 +7,8 @@ class PostsController < ApplicationController
     OR (users.id=friendships.asker_id AND friendships.receiver_id=#{current_user.id})"
     sql_condition = "friendships.status='accepted'"
     @posts = policy_scope(Post).joins(sql_join).where(sql_condition)
+    # or(policy_scope(Post).where(user: current_user))
+    # OR (users.id=#{current_user.id})
     # .where.not(user: current_user)
     # raise
   end
