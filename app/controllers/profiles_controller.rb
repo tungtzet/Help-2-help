@@ -13,12 +13,20 @@ class ProfilesController < ApplicationController
     # User.joins(:posts).where(posts: { user: current_user })
     authorize @profile
     @posts = Post.where(user: @profile.user)
+    # CONDITION FOR FRIENDSHIP BUTTON
     if Friendship.find_by(asker: current_user, receiver: @profile.user)
       @friendship = Friendship.find_by(asker: current_user, receiver: @profile.user)
     elsif Friendship.find_by(receiver: current_user, asker: @profile.user)
       @friendship = Friendship.find_by(receiver: current_user, asker: @profile.user)
     else
       @friendship = Friendship.new
+    end
+    #CONDITION FOR CHAT/MESSAGE BUTTON
+    common_chats = current_user.chats & @profile.user.chats
+    if common_chats.empty?
+      @chat = Chat.new
+    else
+      @chat = common_chats.first
     end
   end
 
