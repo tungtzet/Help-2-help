@@ -11,9 +11,11 @@
           <p><%= post.content %></p>
           
         </div>
-        <p><%= link_to "Show Post", post_path(post) %>
+        <p><%= link_to "Read More", post_path(post) %>
+          <% if post.user == current_user %>
            <%= link_to "Delete", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
            <%= link_to "Edit", edit_post_path(post) %>
+          <% end %>
         </p>
 
          <%= cl_image_tag post.photos.first.key, height: 300, width: 400, crop: :fill  if post.photos.attached? %>

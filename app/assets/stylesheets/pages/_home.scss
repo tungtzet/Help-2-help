@@ -1,7 +1,6 @@
 // Specific CSS for your home-page
-
-.btn-secondary {
-  // position:absolute;
+.btn-cta {
+  position:absolute;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 6px;
@@ -12,19 +11,21 @@
   background-color: rgba(255, 245, 0, 0.95);
   font-family: 'Nunito', sans-serif;
   border-color: #CFD9D8;
+  transition: 0.3s;
   border-radius: 8px;
   box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
 }
 
-.btn-secondary:hover {
+.btn-cta:hover {
   background-color: #fff500;
   border-color: #CFD9D8;
   box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
   color: #37464D;
   }
 
+
 blockquote:before, blockquote:after {
-  color: #fff500 !important;
+  color: #fff500;
 }
 
 // .circle {

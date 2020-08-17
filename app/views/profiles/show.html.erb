@@ -1,8 +1,14 @@
+<div class="container">
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @profile.photo.key if @profile.photo.attached? %>);">
-  <div class="container">
+   <div style="display: flex; justify-content: space-between; align-items: flex-end" class="container">
     <h1><%= @profile.name %></h1>
     <p><%= @profile.bio if @profile.bio %></p>
-
+  
+  <%= link_to "👥", profiles_path %>
+    <% if @profile.user == current_user %>
+      <%= link_to "✏️", edit_profile_path %>
+  <% end %>
+  </div>
   <%# FRIENDSHIP BUTTON START %>
   <% if @profile.user != current_user %>
     <% if @friendship.status == "accepted" %>
@@ -43,35 +49,30 @@
   </div>
 </div>
 
+<div style="display: flex; justify-content: space-between" class="container">
+  <h5>I speak:</h5> </div><div style="display: flex; justify-content: flex-end" class="container">
+  <%= @profile.address if @profile.address %>
 
-
-<div class="container">
-  <br>
-  <h1>Profile</h1>
-  <br>
-  <h5>Languages</h5>
+</div>
+<div style="display: flex; justify-content: absolute" class="container">
   <p><%= @profile.native_language if @profile.native_language %>
   <% if @profile.second_language? %>
      <%= @profile.second_language %></p>
   <% end %>
-  <br>
-  <h5>Address</h5>
-  <p><%= @profile.address if @profile.address %></p>
+</div>
+
+<div style="display: flex; justify-content: flex-start" class="container">
+  
   <% @profile.diseases.each do |disease| %>
      <p>I´m living with: <%= disease.name %> </p>
      <% end %>
-
-  <%= link_to "👥", profiles_path %>
-  <% if @profile.user == current_user %>
-    <%= link_to "✏️", edit_profile_path %>
-  <% end %>
   
- 
 </div>
-
 
 <div class="container">
   <h1 class="text-center">My Posts</h1>
 </div>
 
-<%= render 'partial', post: @post %>
+<div class="container">
+  <%= render 'post', posts: @posts %>
+</div>
