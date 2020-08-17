@@ -5,6 +5,8 @@ class Profile < ApplicationRecord
   has_many :diseases, through: :user_diseases
   has_one_attached :photo
 
+  validates :name, presence: true
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
