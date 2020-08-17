@@ -1,0 +1,12 @@
+<div class="message-container" id="message-<%= message.id %>">
+  <% if current_user.profile && current_user.profile.photo.attached? %>
+    <%= cl_image_tag current_user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar" %>
+  <% else %>
+    <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar" %>
+  <% end %> 
+  <i class="author">
+    <span><%= message.user.email %></span>
+    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </i>
+  <p><%= message.content %></p>
+</div>

@@ -1,17 +1,16 @@
 <br>
 <p>
-<div class="row justify-content-center">
+<div class="d-flex justify-content-between flex-wrap">
 
   <% posts.each do |post| %>
-  <div class="card-trip" style="width: 29rem;">
-   
+  <div class="card-trip mb-5" style="width: 20rem;">
     <%  if post.photos.attached? %>
       <%= cl_image_tag post.photos.first.key %>
     <% else %>
       <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
     <% end %>
     
-    <div class="card-trip-infos justify-content-space-between">
+    <div class="card-trip-infos justify-content-between">
       <div>
         <h2><%= post.title %></h2>
         <p><%= post.content %></p>

@@ -18,6 +18,13 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-trip-posts {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 15px;
+}
+
 .card-trip > img {
   height: 200px;
   width: 100%;
@@ -44,6 +51,22 @@
   align-items: flex-end;
   position: relative;
 }
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -210px;
+  width: 40px;
+}
+
+.card-trip-infos .card-trip-likes {
+  position: absolute;
+  right: -19px;
+  top: -170px;
+  width: 40px;
+  margin: 36px;
+}
+
 
 .card-trip-infos h2 {
   color: white;

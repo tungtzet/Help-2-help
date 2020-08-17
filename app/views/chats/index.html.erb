@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>My Chats</h1>
+  <ul>
+  <% @chats.each do |chat| %>
+    <li>
+    <% partner_name = current_user == chat.users.first ? chat.users.last.profile.name : chat.users.first.profile.name %>
+    <%= link_to "Chat with #{partner_name}", chat_path(chat) %>
+    </li>
+  <% end %>
+  </ul>
+</div>
