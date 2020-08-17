@@ -1,20 +1,69 @@
 
 <br>
 <div class="container">
-<div class="card-trip">
+
+
+
+<section id="promoting-card">
+
+  <!--Section: Live preview-->
+  <section>
+
+<div class="card promoting-card" style="max-width: 22rem;">
+
+      <!-- Card content -->
+      <div class="card-body d-flex flex-row">
+   
+    <!-- Avatar -->
+     <% if @post.user.profile && @post.user.profile.photo.attached? %>
+        <%= cl_image_tag @post.user.profile.photo.key, width: 50, height: 50, class:"rounded-circle mr-3"%>
+      <% else %>
+        <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "rounded-circle mr-3"%>
+      <% end %> 
+    
+
+    <!-- Content -->
+    <div>
+
+      <!-- Title -->
+      <h4 class="card-title font-weight-bold mb-2"><%= @post.title %></h4>
+      <!-- Subtitle -->
+      <p class="card-text"><i class="far fa-clock pr-2"></i>07/24/2018</p>
+
+    </div>
+
+  </div>
+
+  <!-- Card image -->
+  <div class="view overlay">
   <%  if @post.photos.attached? %>
-    <%= cl_image_tag @post.photos.first.key %>
+    <%= cl_image_tag @post.photos.first.key, class:"card-img-top rounded-0" %>
   <% else %>
    <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
   <% end %>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @post.title %></h2>
-      <p><%= @post.content %></p>
-    </div>
-     <%= cl_image_tag @post.user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
   </div>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <div class="collapse-content">
+
+      <!-- Text -->
+      <p class="card-text collapse" id="collapseContent"> <p><%= @post.content %></p>
+      <!-- Button -->
+      <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
+      <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+      <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+
+    </div>
+
+  </div>
+
 </div>
-</div>
+<!-- Card -->
+
+</section>
 
 
+
+</div>
