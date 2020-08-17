@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
         @chat,
         render_to_string(partial: "message", locals: { message: @message })
       )
-      redirect_to chat_path(@chat, anchor: "message-#{@message.id}")
+      # redirect_to chat_path(@chat, anchor: "message-#{@message.id}")
     else
       render "chats/show"
     end
