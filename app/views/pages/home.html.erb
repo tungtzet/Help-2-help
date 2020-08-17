@@ -1,18 +1,17 @@
 <%= render 'modal' %>
-
-<!-- carousel -->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-     <img class="d-block w-100" src="https://res.cloudinary.com/tungtzet/image/upload/v1597141144/hugging-each-other_new_a7nz0r.jpg" alt="First slide">
-      <div class="carousel-caption">
+  <!-- carousel -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+       <img class="d-block w-100" src="https://res.cloudinary.com/tungtzet/image/upload/v1597141144/hugging-each-other_new_a7nz0r.jpg" alt="First slide">
+       <div class="carousel-caption">
         <h5>You are not alone</h5>
-    
+
       </div>
     </div>
     <div class="carousel-item">
@@ -30,11 +29,9 @@
         <br>
         <br>
         <p>
-            <button type="button" class="myButton btn-secondary  btn-cta">Sign Up</button>
-         </p>
+          <button type="button" class="myButton btn-secondary  btn-cta">Sign Up</button>
+        </p>
       </div>
-
-
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -45,95 +42,114 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+  </div>
 
-<!-- quotation -->
-<div class="circle"></div>
+  <!-- quotation -->
+  <div class="circle"></div>
 
-<div class="container">
-  <h1 class="my-3 h2h-heading">Love is all around</h1>
+  <div class="container">
+    <h1 class="my-3 h2h-heading">Love is all around</h1>
     <div class="quotes mb-5">
       <blockquote>Love is all around us all the time. We just have to know where to look and find.
       There's always someone out there who's been through what you've been through.</blockquote>
     </div>
-</div>
+  </div>
 
-<!-- form with question -->
-<div class="container">
-  <%= form_tag profiles_path, method: :get do %>
+  <!-- form with question -->
+  <div class="container">
+    <%= form_tag profiles_path, method: :get do %>
     <div class="form-row">
       <div class="col">
         <%= text_field_tag :disease,
-          params[:disease],
-          class: "form-control",
+        params[:disease],
+        class: "form-control",
           placeholder: "What's your condition?"
-        %>
+          %>
       </div>
 
-      <%# <div class="col-3"> %>
-        <%# text_field_tag :address,
-          params[:address],
-          class: "form-control",
-          id: "address-search-home",
-          placeholder: "Where?"
-        %>
-      <%# </div> %>
+        <%# <div class="col-3"> %>
+          <%# text_field_tag :address,
+            params[:address],
+            class: "form-control",
+            id: "address-search-home",
+            placeholder: "Where?"
+            %>
+            <%# </div> %>
       <div class="col">
         <%= submit_tag "Find Us!", class: "btn btn-secondary" %>
       </div>
     </div>
-  <% end %>
-</div>
-
-<br>
-<br>
-<br>
-
-<!-- banner -->
-<div class="banner mb-5" id="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('https://res.cloudinary.com/dvf1ekp5b/image/upload/v1597410846/Schermata_2020-07-19_alle_22.37.27_falopx.png');">
-  <div class="container">
-    <!-- <h1>You are not alone</h1> -->
+    <% end %>
   </div>
-</div>
 
-<!-- cards -->
+  <br>
+  <br>
+  <br>
 
-<div class="container mt-5">
-  <h2>Are you living with it? Us Too.</h2>
-
-  <div class="cards my-5">
-    <div class="card-trip">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597147974/Women-together_rs9u6c.jpg" />
-      <div class="card-trip-infos">
-        <h2>connect</h2>
-        <div>
-          <p>Find new people sharing your same condition and start talking.</p>
-        </div>
-      </div>
-    </div>
-    <div class="card-trip">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148585/group_therapy_cntq9w.jpg" />
-      <div class="card-trip-infos">
-        <h2>share</h2>
-        <div>
-          <p>Be inspired by other's stories and share yours as well.</p>
-        </div>
-      </div>
-    </div>
-    <div class="card-trip">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148574/lending-hands_wfbk0l.jpg" />
-      <div class="card-trip-infos">
-        <h2>help</h2>
-        <div>
-          <p>We'd be glad to help you. And we know, you'll help us too.</p>
-        </div>
-      </div>
+  <!-- banner -->
+  <div class="banner mb-5" id="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('https://res.cloudinary.com/dvf1ekp5b/image/upload/v1597410846/Schermata_2020-07-19_alle_22.37.27_falopx.png');">
+    <div class="container">
+      <!-- <h1>You are not alone</h1> -->
     </div>
   </div>
+
+  <!-- cards -->
+
+  <div class="container mt-5">
+    <h2>Are you living with it? Us Too.</h2>
+    <div class="cards my-5">
+      <div class="card-trip">
+        <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597147974/Women-together_rs9u6c.jpg" />
+        <div class="card-trip-infos">
+          <h2>connect</h2>
+          <div>
+            <p>Find new people sharing your same condition and start talking.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-trip">
+        <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148585/group_therapy_cntq9w.jpg" />
+        <div class="card-trip-infos">
+          <h2>share</h2>
+          <div>
+            <p>Be inspired by other's stories and share yours as well.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-trip">
+        <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148574/lending-hands_wfbk0l.jpg" />
+        <div class="card-trip-infos">
+          <h2>help</h2>
+          <div>
+            <p>We'd be glad to help you. And we know, you'll help us too.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+<div class="container d-flex justify-content-between" id="testimonials">
+
+  <div class="card-testimonial justify-content-center">
+    <blockquote style="height: 100%;">Calvin: Sometimes when I'm talking with others, my words can't keep up with my thoughts. I wonder why we think faster than we speak. Hobbes: Probably so we can think twice. </blockquote>
+    <div class="author position-absolute">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample1.jpg" alt="sq-sample1"/>
+      <h5>Pelican Steve <span> LittleSnippets</span></h5>
+    </div>
+  </div>
+  <div class="card-testimonial justify-content-center">
+    <blockquote style="height: 100%;">Thank you. before I begin, I'd like everyone to notice that my report is in a professional, clear plastic binder...When a report looks this good, you know it'll get an A. That's a tip kids. Write it down.</blockquote>
+    <div class="author position-absolute">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample24.jpg" alt="sq-sample24"/>
+      <h5>Max Conversion<span> LittleSnippets</span></h5>
+    </div>
+  </div>
+  <div class="card-testimonial justify-content-center">
+    <blockquote style="height: 100%;">My behaviour is addictive functioning in a disease process of toxic co-dependency. I need holistic healing and wellness before I'll accept any responsibility for my actions.</blockquote>
+    <div class="author position-absolute">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample29.jpg" alt="sq-sample29"/>
+      <h5>Eleanor Faint<span> LittleSnippets</span></h5>
+    </div>
+  </div>
 </div>
-
-
-
-
-
-
