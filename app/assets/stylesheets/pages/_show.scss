@@ -9,3 +9,111 @@ input#friendship_status {
 h3 {
   font-weight: bold;
 }
+
+.img-thumbnail {
+  width: 300px;
+  border-radius: 150px;
+  // height: 200px;
+}
+
+#dropdownMenuButton {
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+
+#profile-bio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profile-text {
+  justify-content: space-around;
+  // align-items: center;
+  max-width: 35%;
+}
+
+
+#friendship-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#profilename {
+  h1 {
+    position: relative;
+  }
+
+  h1:after {
+    content: "";
+    width: 100%;
+    z-index: -1;
+    height: 20px;
+    position: absolute;
+    bottom: -4px;
+    left: 24px;
+    background: #fff500;
+    opacity: 0.8;
+}
+}
+
+#profile-text {
+  h7 {
+    color:  rgba(105,105,105, 0.7);
+
+  }
+}
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+  #profile-bio {
+        flex-direction: column;
+
+  }
+  #profile-text {
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+#linebrake {
+  max-width: 70%;
+}
+
+#mypost {
+  h2 {
+    position: relative;
+}
+  h2:after {
+    content: "";
+    width: 100%;
+    z-index: -1;
+    height: 20px;
+    position: absolute;
+    bottom: -4px;
+    left: 24px;
+    background: #fff500;
+    opacity: 0.8;
+}
+}
+
+#circle-profile {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    background-color: #fff500;
+    transform: translate(320px, -240px);
+    position: absolute;
+    z-index: -1;
+    animation-name: circle-h2h;
+    animation-duration: 20s;
+    // animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}

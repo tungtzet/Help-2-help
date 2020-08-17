@@ -1,87 +1,102 @@
-<div class="container">
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @profile.photo.key if @profile.photo.attached? %>);">
-   <div style="display: flex; justify-content: space-between; align-items: flex-end" class="container">
-    <h1><%= @profile.name %></h1>
-    <p><%= @profile.bio if @profile.bio %></p>
-  
-  <%= link_to "👥", profiles_path %>
-    <% if @profile.user == current_user %>
-      <%= link_to "✏️", edit_profile_path %>
-  <% end %>
+<div class="flex-container" id="profile-bio">
+
+  <!-- IMG PROFILE -->
+  <div class="flex-contailer">
+    <img src="<%= cl_image_path @profile.photo.key if @profile.photo.attached? %>"  class="img-thumbnail">
   </div>
-  <%# FRIENDSHIP BUTTON START %>
-  <% if @profile.user != current_user %>
-    <% if @friendship.status == "accepted" %>
-      <div class="dropdown">
-        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Friend
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to "Unfriend", friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
-        </div>
-      </div>
-    <% elsif @friendship.asker == current_user && @friendship.status == "pending" %>
-      <div class="dropdown">
-        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          &check; Request Sent
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to "Cancel", friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
-        </div>
-      </div>
-    <% elsif @friendship.status == "rejected" %>
-      <button type="button" class="btn btn-outline-warning">Please make another request in 14 days. Or send this person a message.</button>
-    <% elsif @friendship.receiver == current_user && @friendship.status == "pending" %>
-      <div class="dropdown">
-      <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Respond
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= link_to "Accept", friendship_path(@friendship, friendship: { status: 'accepted' }), method: :patch, class: "dropdown-item" %>
-        <%= link_to "Deny", friendship_path(@friendship, friendship: { status: 'rejected' }), data: { confirm: 'Are you sure?'}, method: :patch, class: "dropdown-item" %>
-      </div>
+
+  <!-- TEXT -->
+  <div class="flex-container" id="profile-text">
+
+    <!-- NAME -->
+    <div style="display: flex" class="container" id="profilename">
+      <h1><%= @profile.name %></h1>
     </div>
-    <% else %>
-      <%= link_to "Add Friend", profile_friendships_path([@profile, @friendship], friendship: { status: 'pending' }), method: :post, remote: true, class: "btn btn-primary" %>
-    <% end %>
-  <% end %>
-  <%# FRIENDSHIP BUTTON END %>
+
+    <!-- CITY -->
+    <div  class="container">
+      <h7> <i class="fas fa-map-marker-alt"></i> <%= @profile.address if @profile.address %> </h7>
+    </div>
+
+    <!-- BIO -->
+    <div  class="container">
+      <br>
+      <p><i class="fas fa-highlighter"></i> <%= @profile.bio if @profile.bio %></p>
+    </div>
+    <div class="circle" id="circle-profile"></div>
+
+    <!-- LANGUAGE -->
+    <div  class="container">
+      <h5>I speak: <%= @profile.native_language.capitalize if @profile.native_language %>
+        <% if @profile.second_language? %> &
+        <%= @profile.second_language.capitalize %>
+      </h5>
+      <% end %>
+    </div>
+
+    <!-- DISEASE -->
+    <div style="display: flex" class="container">
+      <% @profile.diseases.each do |disease| %>
+      <h6> I´m living with: <%= disease.name %> </h6>
+      <% end %>
+    </div>
+
+    <!-- LINKS -->
+    <div style="display: flex" class="container">
+      <%# link_to "👥", profiles_path %>
+      <% if @profile.user == current_user %>
+      <%= link_to "✏️", edit_profile_path %>
+      <% end %>
+    </div>
 
 
-  <%# CHAT BUTTON START %>
-  <% if @profile.user != current_user %>
-    <% if @chat.id.nil? %>
-      <%= link_to "Message", profile_chats_path([@profile, @chat]), method: :post, class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Message", chat_path(@chat), class: "btn btn-primary" %>
-    <% end %>
-  <% end %>
-  <%# CHAT BUTTON END %>
   </div>
 </div>
 
-<div style="display: flex; justify-content: space-between" class="container">
-  <h5>I speak:</h5> </div><div style="display: flex; justify-content: flex-end" class="container">
-  <%= @profile.address if @profile.address %>
 
-</div>
-<div style="display: flex; justify-content: absolute" class="container">
-  <p><%= @profile.native_language if @profile.native_language %>
-  <% if @profile.second_language? %>
-     <%= @profile.second_language %></p>
+<%# FRIENDSHIP BUTTON START %>
+<div class="flex-container" id="friendship-button">
+  <% if @profile.user != current_user %>
+  <% if @friendship.status == "accepted" %>
+  <div class="dropdown">
+    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Friend
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Unfriend", friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
+    </div>
+  </div>
+  <% elsif @friendship.asker == current_user && @friendship.status == "pending" %>
+  <div class="dropdown">
+    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      &check; Request Sent
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Cancel", friendship_path(@friendship), data: { confirm: 'Are you sure?'}, method: :delete, remote: true, class: "dropdown-item" %>
+    </div>
+  </div>
+  <% elsif @friendship.status == "rejected" %>
+  <button type="button" class="btn btn-outline-warning">Please make another request in 14 days. Or send this person a message.</button>
+  <% elsif @friendship.receiver == current_user && @friendship.status == "pending" %>
+  <div class="dropdown">
+    <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Respond
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Accept", friendship_path(@friendship, friendship: { status: 'accepted' }), method: :patch, class: "dropdown-item" %>
+      <%= link_to "Deny", friendship_path(@friendship, friendship: { status: 'rejected' }), data: { confirm: 'Are you sure?'}, method: :patch, class: "dropdown-item" %>
+    </div>
+  </div>
+  <% else %>
+  <%= link_to "Add Friend", profile_friendships_path([@profile, @friendship], friendship: { status: 'pending' }), method: :post, remote: true, class: "btn btn-primary" %>
+  <% end %>
   <% end %>
 </div>
+<%# FRIENDSHIP BUTTON END %>
+<hr id="linebrake">
 
-<div style="display: flex; justify-content: flex-start" class="container">
-  
-  <% @profile.diseases.each do |disease| %>
-     <p>I´m living with: <%= disease.name %> </p>
-     <% end %>
-  
-</div>
-
-<div class="container">
-  <h1 class="text-center">My Posts</h1>
+<div class="container" id="mypost" style="display: flex">
+  <h2 class="text-center">My Posts</h2>
 </div>
 
 <div class="container">
