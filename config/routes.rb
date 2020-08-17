@@ -6,13 +6,19 @@ Rails.application.routes.draw do
   resources :profiles do
     resources :user_diseases, only: :create
     resources :friendships, only: :create
+    resources :chats, only: :create
   end
 
   namespace :user do
     resources :friendships, only: [:index, :destroy, :update]
   end
 
+  resources :chats, only: [:show, :index] do
+    resources :messages, only: :create
+  end
+
   resources :posts
   resources :user_diseases, only: :destroy
   resources :friendships, only: [:destroy, :update]
+  resources :chats, only: :show
 end
