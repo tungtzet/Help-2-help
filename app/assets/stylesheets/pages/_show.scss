@@ -26,6 +26,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
 }
 
 #profile-text {
@@ -116,4 +117,9 @@ h3 {
     animation-duration: 20s;
     // animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+}
+
+#friendship-button {
+  justify-content: left;
+  padding-left: 15px;
 }
