@@ -13,13 +13,13 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    authorize @like
     if !(already_liked?)
       flash[:notice] ="Cannot unlike"
     else
       @like.destroy
     end
     redirect_to post_path(@post)
-    authorize @post
   end
 
   private
