@@ -18,6 +18,14 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+
+.custom-card > img,
+ {
+   height: 300px;
+   width: 100%;
+   object-fit: cover;
+}
+
 a.custom-card,
 a.custom-card:hover {
   text-decoration: none;
@@ -56,6 +64,14 @@ a.custom-card:hover {
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+}
+
+.card-not-strech {
+  max-height: 400px;
+}
+
+.card-not-strech img {
+  max-height: 300px;
 }
 
 .card-trip-infos .card-trip-user {

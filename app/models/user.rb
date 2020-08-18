@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :chats, through: :user_chats
   has_many :friendships_as_asker, class_name: "Friendship", source: :friendships, foreign_key: :asker_id, dependent: :destroy
   has_many :friendships_as_receiver, class_name: "Friendship", source: :friendships, foreign_key: :receiver_id, dependent: :destroy
+  has_many :likes, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   def is_friend_with?(another_user)

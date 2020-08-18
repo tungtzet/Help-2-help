@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  resources :posts do
+    resources :likes
+  end
+
   resources :posts
   resources :user_diseases, only: :destroy
   resources :friendships, only: [:destroy, :update]
