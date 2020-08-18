@@ -13,11 +13,11 @@
     <cite>- Brandi Carlile</cite>
   </div>
 
-  <%= form_with(profiles_path, method: :get) do %>
-  <%= text_field_tag(:disease) %>
-  <%= submit_tag("Find Us!") %>
-  <% end %>
-
+  <%# form_with(url: "/profiles", method: "get", local: true) do %>
+  <%# select_tag(:disease, options_for_select(@disease_select)) %>
+  <%# submit_tag("Find Us!") %>
+  <%# end %>
+  <%# select_tag(:disease, options_for_select(@disease_select)) %>
   <%# options_for_select(@disease_select) %>
   <%# f.input :disease, label: 'Your condition', collection: @disease_select, input_html: { class: "select2", id:"disease_form" } %>
   <%= form_tag profiles_path, method: :get do %>
