@@ -22,7 +22,7 @@
     <div class="col" id="chat-avatar">
       <h1>
         <%= cl_image_tag @partner_profile.photo.key, width: 200, height: 200, gravity: :face, crop: :fill if @partner_profile.photo.attached? %>
-        Chat with <%= @partner_profile.name %>
+        <%= @partner_profile.name %>
       </h1>
       <div class="col scroller" id="chat-page">
         <div id="messages" data-chat-id="<%= @chat.id %>">
