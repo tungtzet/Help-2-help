@@ -13,7 +13,8 @@
     <cite>- Brandi Carlile</cite>
   </div>
 
-
+  <%# options_for_select(@disease_select) %>
+  <%# f.input :disease, label: 'Your condition', collection: @disease_select, input_html: { class: "select2", id:"disease_form" } %>
   <%= form_tag profiles_path, method: :get do %>
   <div class="form-row">
     <div class="col">
@@ -21,13 +22,13 @@
       params[:disease],
       class: "form-control",
         placeholder: @params.present? ? @params : "What've you been through?"
-        %>
-      </div>
-      <div class="col">
-        <%= submit_tag "Find Us!", class: "btn btn-secondary" %>
-      </div>
+      %>
     </div>
-    <% end %>
+    <div class="col">
+      <%= submit_tag "Find Us!", class: "btn btn-secondary" %>
+    </div>
+  </div>
+  <% end %>
 
     <div class="col-12 col-lg-12 mt-5">
       <div class="cards d-flex flex-wrap">
