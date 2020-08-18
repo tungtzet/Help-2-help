@@ -11,7 +11,6 @@
   }
 }
 
-
 .card-trip {
   overflow: hidden;
   background: white;
@@ -49,7 +48,6 @@ a.custom-card:hover {
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -72,7 +70,6 @@ a.custom-card:hover {
   width: 40px;
   margin: 36px;
 }
-
 
 .card-trip-infos h2 {
   color: white;
@@ -141,12 +138,12 @@ a.custom-card:hover {
   overflow: hidden;
 }
 
- .card-profile-index:hover {
-    transform: scale(1.01);
-    background-color: #fff5000d;
-    // border-radius: 32px;
-    transition: transform 0.25s ease-out;
-    text-decoration: none;
+.card-profile-index:hover {
+  transform: scale(1.01);
+  background-color: #fff5000d;
+  // border-radius: 32px;
+  transition: transform 0.25s ease-out;
+  text-decoration: none;
 }
 
 .card-profile-index img {
@@ -162,7 +159,6 @@ a.custom-card:hover {
   font-weight: bold;
   margin: 0;
   text-decoration: none;
-
 }
 
 .card-profile-index p {
@@ -186,13 +182,4 @@ a.custom-card:hover {
 .profile-link {
   text-decoration: none !important;
 }
-
-
-
-
-
-
-
-
-
 

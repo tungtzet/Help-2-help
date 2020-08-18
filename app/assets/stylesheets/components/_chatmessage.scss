@@ -57,12 +57,6 @@ h1 {
   border-radius: 20px;
   margin-top: 10px;
 }
-// .scroller {
-//   scrollbar-color: green;
-//   scrollbar-width: thin;
-// }
-// FROM LEWAGON
-
 
 .conversations-sidebar {
   color: black;
@@ -74,26 +68,6 @@ h1 {
   border-right: 1px solid lightgrey;
   padding-left: 40px;
 }
-
-// .conversations-sidebar h1 {
-//   font-size: 24px;
-// }
-
-// .chat-section {
-//   margin-top: 24px;
-// }
-
-// .chat-section-header {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
-
-// .chat-section-header h3 {
-//   font-size: 16px;
-//   margin: 0;
-// }
-
 
 .chat-container {
   flex-grow: 1;
@@ -108,8 +82,6 @@ h1 {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding-right: 30px;
 }
-
-
 
 .circle-chat {
     border-radius: 50%;
@@ -126,28 +98,3 @@ h1 {
     bottom: 0;
     right: 0;
   }
-
-
-// .chat-header {
-//   border-bottom: 1px solid black;
-// }
-
-// .chat-header h1 {
-//   font-size: 34px;
-// }
-
-// .chat-header i {
-//   font-size: 20px;
-// }
-
-// .chat-conversations {
-//   flex-grow: 1;
-//   padding: 16px 0;
-//   overflow: scroll;
-// }
-
-// .message {
-//   display: flex;
-//   align-items: flex-start;
-// }
-
