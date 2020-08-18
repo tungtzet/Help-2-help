@@ -1,3 +1,153 @@
 .message-container.current-user {
-  background-color: yellow;
+  background-color: lightyellow;
+  text-align: right;
+  border: 1px solid lightgrey;
+  border-radius: 50px;
+  align-self: flex-end;
 }
+.message-container {
+  border: 1px solid lightgrey;
+  border-radius: 50px;
+  padding-right: 30px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 40%;
+  // text-align: right;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-top: 8px;
+  .avatar {
+    display: none;
+  }
+}
+
+#messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-user-name, .chat-date {
+  color: lightgrey;
+}
+
+.user-message-content{
+  margin-top: -8px;
+}
+
+#chat-avatar {
+h1 {
+  text-align: center;
+}
+}
+
+#chat-page {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+#chat-avatar {
+    img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 25px;
+  }
+}
+
+#message_content {
+  border-radius: 20px;
+  margin-top: 10px;
+}
+// .scroller {
+//   scrollbar-color: green;
+//   scrollbar-width: thin;
+// }
+// FROM LEWAGON
+
+
+.conversations-sidebar {
+  color: black;
+  // padding: 16px;
+  width: 200px;
+  flex-shrink: 0;
+  // border-radius: 20px;
+  padding-left: 20px;
+  border-right: 1px solid lightgrey;
+  padding-left: 40px;
+}
+
+// .conversations-sidebar h1 {
+//   font-size: 24px;
+// }
+
+// .chat-section {
+//   margin-top: 24px;
+// }
+
+// .chat-section-header {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+// .chat-section-header h3 {
+//   font-size: 16px;
+//   margin: 0;
+// }
+
+
+.chat-container {
+  flex-grow: 1;
+  margin-left: 160px;
+  margin-right: 160px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding-right: 30px;
+}
+
+
+
+.circle-chat {
+    border-radius: 50%;
+    width: 360px;
+    height: 360px;
+    background-color: #fff500;
+    transform: translate(-80px, -240px);
+    position: absolute;
+    z-index: -1;
+    animation-name: circle-h2h;
+    animation-duration: 20s;
+    // animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    bottom: 0;
+    right: 0;
+  }
+
+
+// .chat-header {
+//   border-bottom: 1px solid black;
+// }
+
+// .chat-header h1 {
+//   font-size: 34px;
+// }
+
+// .chat-header i {
+//   font-size: 20px;
+// }
+
+// .chat-conversations {
+//   flex-grow: 1;
+//   padding: 16px 0;
+//   overflow: scroll;
+// }
+
+// .message {
+//   display: flex;
+//   align-items: flex-start;
+// }
+

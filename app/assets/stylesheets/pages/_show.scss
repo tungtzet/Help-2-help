@@ -35,6 +35,10 @@ h3 {
   max-width: 35%;
 }
 
+#friendship-button {
+  justify-content: left;
+  padding-left: 15px;
+}
 
 #friendship-button {
     display: flex;
@@ -119,7 +123,3 @@ h3 {
     animation-timing-function: ease-in-out;
 }
 
-#friendship-button {
-  justify-content: left;
-  padding-left: 15px;
-}
