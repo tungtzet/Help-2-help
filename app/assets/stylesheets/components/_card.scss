@@ -18,6 +18,11 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-grid-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 35px;
+}
 
 .custom-card > img,
  {
@@ -66,9 +71,6 @@ a.custom-card:hover {
   position: relative;
 }
 
-.card-not-strech {
-  max-height: 400px;
-}
 
 .card-not-strech img {
   max-height: 300px;
@@ -76,15 +78,15 @@ a.custom-card:hover {
 
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 16px;
-  top: -210px;
+  right: 14px;
+  top: -312px;
   width: 40px;
 }
 
 .card-trip-infos .card-trip-likes {
   position: absolute;
-  right: -19px;
-  top: -170px;
+  right: -21px;
+  top: -273px;
   width: 40px;
   margin: 36px;
 }
