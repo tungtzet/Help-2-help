@@ -39,9 +39,10 @@
      <div>
         <i class="fas fa-share-alt text-white float-right p-1 my-1 card-trip-user card-trip-likes"  data-toggle="tooltip" data-placement="top" title="Share this post"></i>
         <p></p>
-        <%= link_to post_likes_path(post), method: :post do %>
-          <i class="fas fa-heart text-white float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i>
-        <% end %>
+          <%= link_to post_likes_path(post), method: :post do %>
+            <i class="fas fa-heart text-white float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+          <% end %>
+
         <% if post.user == current_user %>
           <%= link_to "🗑️", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
           <%= link_to "✏️", edit_post_path(post) %>
