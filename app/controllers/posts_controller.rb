@@ -4,9 +4,10 @@ class PostsController < ApplicationController
   def index
     sql_join = "INNER JOIN users ON posts.user_id=users.id INNER JOIN friendships 
     ON (users.id=friendships.receiver_id AND friendships.asker_id=#{current_user.id})
-    OR (users.id=friendships.asker_id AND friendships.receiver_id=#{current_user.id})"
-    sql_condition = "friendships.status='accepted'"
-    @posts = policy_scope(Post).joins(sql_join).where(sql_condition)
+    OR (users.id=friendships.asker_id AND friendships.receiver_id=#{current_user.id})
+    OR (users.id=#{current_user.id})"
+    sql_condition = "friendships.status= ?"
+    @posts = policy_scope(Post).joins(sql_join).where(sql_condition, "accepted").distinct
     # or(policy_scope(Post).where(user: current_user))
     # OR (users.id=#{current_user.id})
     # .where.not(user: current_user)
@@ -58,7 +59,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, photos: [])
+    params.require(:post).permit(:title, :content, :user_id, :post_id, photos: [])
   end
 
 

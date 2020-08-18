@@ -18,27 +18,27 @@
          <%= link_to "", posts_path, class: "fas fa-rss btn" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Chats", chats_path, class: "btn" %>
+          <%= link_to "", chats_path, class: "fas fa-comments btn" %>
         </li>
         <li class="nav-item">
-         <li>
           <%= link_to "", user_friendships_path, class: "fas fa-users btn" %>
         </li>
-           <li>
-            <% if current_user.profile %>
-              <%= link_to "", profile_path(current_user.profile), class: "btn fas fa-user-circle" %>
-            <% else %>
-              <%= link_to "Create A Profile", new_profile_path, class: "btn fas fa-user-circle" %>
-            <% end %>
-          </li>
+        <li class="nav-item">
+          <% if !current_user.profile %>
+            <%= link_to "Create A Profile", new_profile_path, class: "btn fas fa-user-circle" %>
+          <% end %>
+        </li>
         
-        <li class="nav-item dropdown">
-          <% if current_user.profile && current_user.profile.photo.attached? %>
-            <%= cl_image_tag current_user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>          
+        <li class="nav-item dropdown ml-4">
+          
+            <% if current_user.profile && current_user.profile.photo.attached? %>
+              <%= cl_image_tag current_user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "My Profile", profile_path(current_user.profile), class: "dropdown-item" %>
+            <%= link_to "Edit Profile", edit_profile_path(current_user.profile), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

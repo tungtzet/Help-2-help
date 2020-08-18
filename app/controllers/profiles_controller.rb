@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
     @params = params[:disease]
     @profiles = policy_scope(Profile)
     @profiles = policy_scope(Profile).global_search(@params).order(created_at: :desc) if @params.present?
+    @disease_select = Disease.all.map { |disease| [disease.name, disease.id] }
     # raise
   end
 
@@ -33,13 +34,15 @@ class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
     authorize @profile
+    diseases = Disease.all
+    @disease_select = diseases.map { |disease| [disease.name, disease.id] }
   end
 
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
     if @profile.save
-      # UserDisease.create(profile: @profile, disease: Disease.find(params[:profile][:disease]))
+      UserDisease.create(profile: @profile, disease: Disease.find(params[:profile][:disease]))
       redirect_to profile_path(@profile)
     else
       render new
@@ -75,6 +78,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:name, :bio, :address, :age, :native_language, :second_language, :photo)
+    params.require(:profile).permit(:name, :bio, :address, :age, :native_language, :second_language, :photo, :disease)
   end
 end
