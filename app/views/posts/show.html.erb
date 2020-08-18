@@ -53,7 +53,9 @@
       <!-- Button -->
       <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
       <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
-      <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+      <%= link_to post_likes_path(@post), method: :post do %>
+        <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+      <% end %>
 
     </div>
 
@@ -65,5 +67,18 @@
 </section>
 
 
+<%= button_to 'Like', post_likes_path(@post), method: :post %>
+<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes' %></p>
+<% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', post_like_path(@post,pre_like), method: :delete %>
+  <% else %>
+    <% button_to 'Like', post_likes_path(@post), method: :post %>
+<% end %>
+
+
+<%= link_to post_likes_path(@post), method: :post do %>
+  <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+<% end %>
 
 </div>
