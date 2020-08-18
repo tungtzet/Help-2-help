@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
     @params = params[:disease]
     @profiles = policy_scope(Profile)
     @profiles = policy_scope(Profile).global_search(@params).order(created_at: :desc) if @params.present?
+    @disease_select = Disease.all.map { |disease| [disease.name, disease.id] }
     # raise
   end
 
