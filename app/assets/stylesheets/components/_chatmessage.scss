@@ -71,7 +71,7 @@ h1 {
 }
 
 .person {
-  border-bottom: 1px solid #0e0000a1;
+  border-bottom: 1px solid lightgrey;
   padding-top: 8px;
   padding-bottom: 8px;
   li a {
@@ -112,3 +112,13 @@ h1 {
     bottom: 0;
     right: 0;
   }
+
+.person.active {
+  background-color: yellow;
+  font-weight: bold;
+  transform:scale(1.2,1.2);
+  border-right: 8px solid lightgrey;
+  img {
+    margin-left: 8px
+  }
+}

@@ -4,10 +4,10 @@
     <div class="col-3 conversations-sidebar">
       <h4>Messages</h4>
       <% @chats.each do |chat| %>
-      <div class="person">
+      <% partner_profile = current_user == chat.users.first ? chat.users.last.profile : chat.users.first.profile %>
+      <div class="person <%= "active" if partner_profile==@partner_profile %>">
         <!-- <div class="online-badge"></div> -->
         <li>
-          <% partner_profile = current_user == chat.users.first ? chat.users.last.profile : chat.users.first.profile %>
           <% if partner_profile && partner_profile.photo.attached? %>
           <%= cl_image_tag partner_profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar" %>
           <% else %>

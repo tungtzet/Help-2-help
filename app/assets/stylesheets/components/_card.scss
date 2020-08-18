@@ -121,6 +121,7 @@ a.custom-card:hover {
   height: 180px;
   display: flex;
   justify-content: center;
+  justify-content: space-between;
   align-items: center;
   color: white;
   font-size: 24px;
@@ -129,12 +130,28 @@ a.custom-card:hover {
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   &.friendship {
-    justify-content: left;
+    justify-content: space-between;
     align-items: flex-end;
+    transition: ease .5s;
+    &:hover .fa-comments {
+      opacity: 0.8;
+      transition: ease .5s;
+    }
     a {
       margin: 16px;
       color: #fff500;
       text-decoration: none;
+      padding-right: 0;
+      &.fa-comments {
+        color: white;
+        opacity: 0;
+        transition: ease .5s;
+        &:hover {
+          color: #fff500;
+          opacity: 1;
+          transition: ease .5s;
+        }
+      }
     }
   }
 }
