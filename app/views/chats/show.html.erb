@@ -1,43 +1,53 @@
-<div class="container">
+<div class="chat-container">
   <div class="row my-5">
-    <div class="col">
-      <h1>with <%= @partner_profile.name %></h1>
-      <%= cl_image_tag @partner_profile.photo.key if @partner_profile.photo.attached? %>
-      <div id="messages" data-chat-id="<%= @chat.id %>">
-        <% @chat.messages.each do |message| %>
+<!-- LIST OF USERS -->
+    <div class="col-3 conversations-sidebar">
+      <h4>Messages</h4>
+      <% @chats.each do |chat| %>
+      <div class="person">
+        <div class="online-badge"></div>
+        <li>
+          <% partner_profile = current_user == chat.users.first ? chat.users.last.profile : chat.users.first.profile %>
+          <% if partner_profile && partner_profile.photo.attached? %>
+          <%= cl_image_tag partner_profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar" %>
+          <% else %>
+          <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar" %>
+          <% end %>
+          <%= link_to partner_profile.name, chat_path(chat) %>
+        </li>
+      </div>
+      <% end %>
+    </div>
+<!-- CHAT FIELD -->
+    <div class="col" id="chat-avatar">
+      <h1>
+        <%= cl_image_tag @partner_profile.photo.key, width: 200, height: 200, gravity: :face, crop: :fill if @partner_profile.photo.attached? %>
+        Chat with <%= @partner_profile.name %>
+      </h1>
+      <div class="col scroller" id="chat-page">
+        <div id="messages" data-chat-id="<%= @chat.id %>">
+          <% @chat.messages.each do |message| %>
           <div class="message-container <%= "current-user" if message.user==current_user %>" id="message-<%= message.id %>">
             <% if message.user.profile && message.user.profile.photo.attached? %>
-              <%= cl_image_tag message.user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar" %>
+            <%= cl_image_tag message.user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar" %>
             <% else %>
-              <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar" %>
+            <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar" %>
             <% end %>
             <i class="author">
-              <span><%= message.user.email %></span>
-              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              <span class="chat-user-name"><%= message.user.profile.name %></span>
+              <small class="chat-date"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
             </i>
-            <p><%= message.content %></p>
+            <p class="user-message-content"><%= message.content %></p>
           </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
       <%# TEXT FIELD %>
       <%= simple_form_for [ @chat, @message ], remote: true do |f| %>
-        <%= f.input :content, label: false, placeholder: "type something" %>
+      <%= f.input :content, label: false, placeholder: "type something" %>
       <% end %>
     </div>
-
-    <div class="col-3">
-    <h4>Conversations with</h4>
-    <% @chats.each do |chat| %>
-      <li>
-        <% partner_profile = current_user == chat.users.first ? chat.users.last.profile : chat.users.first.profile %>
-        <% if partner_profile && partner_profile.photo.attached? %>
-          <%= cl_image_tag partner_profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar" %>
-        <% else %>
-          <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar" %>
-        <% end %>
-        <%= link_to partner_profile.name, chat_path(chat) %>
-      </li>
-    <% end %>
-    </div>
   </div>
+  <div class="circle-chat"></div>
 </div>
+
