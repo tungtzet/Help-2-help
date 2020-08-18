@@ -1,10 +1,11 @@
 
 <div class="container"> 
-<div class="d-flex row card-grid-new">
+<div class="d-flex justify-content-between flex-wrap">
 
   <% @posts.each do |post| %>
+  <div class="card-trip mt-5 mb-5" style="width: 20rem;">
   <%= link_to post_path(post), class: "custom-card mb-5" do  %>
-  <div class="card-trip col-4 justify-content-between mr-2 mb-5" style="width: 20rem; margin-top:25px;">
+ 
     
     <%  if post.photos.attached? %>
       <%= cl_image_tag post.photos.first.key %>
@@ -12,8 +13,8 @@
       <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
     <% end %>
     
-   <div class="d-flex justify-content-between">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></div>
-    <div class="card-trip-infos justify-content-between">
+   <div class="card-trip">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></div>
+    <div class="card-trip-infos">
       <div>
         <h2><%= post.title %></h2>
             
