@@ -4,6 +4,7 @@
   grid-gap: 16px;
   &.search-results {
     grid-gap: 32px;
+    margin: 80px 0;
   }
 }
 
@@ -193,8 +194,19 @@ a.custom-card:hover {
   padding: 16px;
 }
 
-.card-profile-index-infos h5, h6 {
+.card-profile-index-infos {
   color: black;
+  opacity: 0.8;
+  h5 {
+    font-weight: bold;
+  }
+  h6 {
+    opacity: 0.6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 320px;
+  }
 }
 
 
