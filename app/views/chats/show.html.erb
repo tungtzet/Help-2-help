@@ -5,7 +5,7 @@
       <h4>Messages</h4>
       <% @chats.each do |chat| %>
       <div class="person">
-        <div class="online-badge"></div>
+        <!-- <div class="online-badge"></div> -->
         <li>
           <% partner_profile = current_user == chat.users.first ? chat.users.last.profile : chat.users.first.profile %>
           <% if partner_profile && partner_profile.photo.attached? %>
