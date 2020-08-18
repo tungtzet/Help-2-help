@@ -1,59 +1,47 @@
 
-<div class="container"> 
-<br>
-
-<div class="d-flex justify-content-around flex-wrap">
-
-  <% @posts.each do |post| %>
-  <%= link_to post_path(post), class: "custom-card" do  %>
-  <div class="card-trip mb-5" style="width: 20rem; margin-top:25px;">
-   
-    <%  if post.photos.attached? %>
+<div class="container">
+  <br>
+  <div class="d-flex justify-content-around flex-wrap">
+    <% @posts.each do |post| %>
+    <%= link_to post_path(post), class: "custom-card" do  %>
+    <div class="card-trip mb-5" style="width: 20rem; margin-top:25px;">
+      <%  if post.photos.attached? %>
       <%= cl_image_tag post.photos.first.key %>
-
-    <% else %>
+      <% else %>
       <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
-    <% end %>
-    
-   
-   <p> </p>
-   <div class="d-flex justify-content-between">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></div>
-    <div class="card-trip-infos justify-content-between">
-      <div>
-        
-      </div>
-      <div>
-        <h2><%= post.title %></h2>
-            
-      <!-- Avatar -->
-      <% if post.user.profile && post.user.profile.photo.attached? %>
+      <% end %>
+      <p> </p>
+      <div class="d-flex justify-content-between">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></div>
+      <div class="card-trip-infos justify-content-between">
+        <div>
+        </div>
+        <div>
+          <h2><%= post.title %></h2>
+
+          <!-- Avatar -->
+          <% if post.user.profile && post.user.profile.photo.attached? %>
           <%= cl_image_tag post.user.profile.photo.key, class:"card-trip-user avatar-bordered"%>
-        <% else %>
+          <% else %>
           <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "rounded-circle mr-3"%>
-        <% end %> 
-        
-        <p style="unstyled;"><%= post.content %></p>
-        <!-- Button -->      
-      </div>
-     
-     <div>
-        <i class="fas fa-share-alt text-white float-right p-1 my-1 card-trip-user card-trip-likes"  data-toggle="tooltip" data-placement="top" title="Share this post"></i>
-        <p></p>
-        <i class="fas fa-heart text-white float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i> 
-        <% if post.user == current_user %>
+          <% end %>
+
+          <p style="unstyled;"><%= post.content %></p>
+          <!-- Button -->
+
+        </div>
+        <div>
+          <i class="fas fa-share-alt text-white float-right p-1 my-1 card-trip-user card-trip-likes"  data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+          <p></p>
+          <i class="fas fa-heart text-white float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+          <% if post.user == current_user %>
           <%= link_to "🗑️", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
           <%= link_to "✏️", edit_post_path(post) %>
-        <% end %> </i>
-     </div>
-      
-
-  
-   
+          <% end %> </i>
+        </div>
       </div>
-
-
     </div>
-  <% end %>
- <% end %>
+    <% end %>
+    <% end %>
+  </div>
 </div>
 
