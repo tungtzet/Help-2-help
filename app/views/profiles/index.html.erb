@@ -35,8 +35,8 @@
   </div>
   <% end %>
 
-    <div class="col-12 col-lg-12 mt-5">
-      <div class="cards d-flex flex-wrap">
+    <div class="col-12 col-lg-12 mt-5 px-0">
+      <div class="cards d-flex flex-wrap search-results">
         <% @profiles.each do |profile| %>
         <%= link_to profile_path(profile) do %>
         <div class="card-profile-index col-12 col-lg-6">

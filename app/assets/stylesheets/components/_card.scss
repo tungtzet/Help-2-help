@@ -2,6 +2,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  &.search-results {
+    grid-gap: 32px;
+  }
 }
 
 // Smallest device
@@ -19,7 +22,7 @@
 }
 
 
-.custom-card > img,
+.custom-card > img
  {
    height: 300px;
    width: 100%;
@@ -195,7 +198,7 @@ a.custom-card:hover {
 }
 
 .card-profile-index-infos h5, h6 {
-  color: black !important;
+  color: black;
 }
 
 
