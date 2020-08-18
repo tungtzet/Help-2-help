@@ -21,7 +21,7 @@
       <p>wants to get in touch with me. I will respond with an open heart.</p> <%# friendship.created_at %>
     </div>
 
-    <div class="notification-actions">
+    <div class="notification-actions respond-actions">
       <%= link_to "Accept", user_friendship_path(friendship, friendship: { status: 'accepted' }), method: :patch, remote: true %>
       <%= link_to "Deny", user_friendship_path(friendship, friendship: { status: 'rejected' }), method: :patch, remote: true %>
     </div>
