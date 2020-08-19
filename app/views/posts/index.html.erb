@@ -1,5 +1,3 @@
-
-<<<<<<< HEAD
 <div class="container"> 
 <div class="d-flex justify-content-between flex-wrap">
 
@@ -21,7 +19,7 @@
             
       <!-- Avatar -->
       <% if post.user.profile && post.user.profile.photo.attached? %>
-=======
+
 <div class="container">
   <br>
   <div class="d-flex justify-content-around flex-wrap">
@@ -43,7 +41,7 @@
 
           <!-- Avatar -->
           <% if post.user.profile && post.user.profile.photo.attached? %>
->>>>>>> origin
+
           <%= cl_image_tag post.user.profile.photo.key, class:"card-trip-user avatar-bordered"%>
           <% else %>
           <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "rounded-circle mr-3"%>
@@ -72,7 +70,7 @@
 
           <%= link_to "🗑️", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
           <%= link_to "✏️", edit_post_path(post) %>
-<<<<<<< HEAD
+
         <% end %> </i>
      </div>
       
@@ -80,14 +78,15 @@
      </div>
 
 
-=======
+
           <% end %> </i>
         </div>
       </div>
->>>>>>> origin
+
     </div>
     <% end %>
     <% end %>
   </div>
 </div>
-
+<% end %>
+<% end %>
