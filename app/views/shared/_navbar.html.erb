@@ -22,7 +22,7 @@
           <% if current_user.chats.empty? %>
             <%= link_to "", chats_path, class: "fas fa-comments btn" %>
           <% else %>
-            <%= link_to "", chat_path(current_user.chats.last, anchor: "message-#{current_user.chats.last.messages.last.id}"), class: "fas fa-comments btn" %>
+            <%= link_to "", chat_path(current_user.chats.last), class: "fas fa-comments btn" %>
           <% end %>
 
         </li>
