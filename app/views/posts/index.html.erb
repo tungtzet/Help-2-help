@@ -22,7 +22,7 @@
    <div class="flexBox" style="
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></div>
+    justify-content: center;">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %> <%= post.created_at.strftime("%I:%M%p")  %></div>
     <div class="card-trip-infos">
       <div>
     
