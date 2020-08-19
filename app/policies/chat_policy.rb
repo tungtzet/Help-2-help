@@ -1,4 +1,5 @@
 class ChatPolicy < ApplicationPolicy
+  attr_accessor :error_message
 
   class Scope < Scope
     def resolve
@@ -7,7 +8,12 @@ class ChatPolicy < ApplicationPolicy
   end
 
   def show?
-    record.users.include?(user)
+    if !record.users.include?(user)
+      @error_message = "You're not allowed to see this chat"
+      false
+    else
+      true
+    end
   end
 
   def create?

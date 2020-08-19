@@ -18,7 +18,7 @@
          <%= link_to "", posts_path, class: "fas fa-rss btn" %>
         </li>
         <li class="nav-item">
-          <%= link_to "", chat_path(Chat.find(UserChat.where(user: current_user).pluck(:chat_id).last)), class: "fas fa-comments btn" %>
+          <%= link_to "", chat_path(current_user.chats.last, anchor: "message-#{current_user.chats.last.messages.last.id}"), class: "fas fa-comments btn" %>
         </li>
         <li class="nav-item">
           <%= link_to "", user_friendships_path, class: "fas fa-users btn" %>
