@@ -15,16 +15,20 @@
 
     <!-- DESCRIPTION -->
     <div  class="container profile-description">
-      <p><i class="fas fa-map-marker-alt"></i> <%= @profile.address if @profile.address %></p>
-      <p><i class="fas fa-highlighter"></i> <%= @profile.bio if @profile.bio %></p>
+      <% if @profile.address && !@profile.address.empty? %>
+      <p><i class="fas fa-map-marker-alt"></i> <%= @profile.address %></p>
+      <% end %>
+      <% if @profile.bio && !@profile.bio.empty? %>
+      <p><i class="fas fa-highlighter"></i> <%= @profile.bio %></p>
+      <% end %>
+      <% if (@profile.native_language && !@profile.native_language.empty?) || (@profile.second_language && !@profile.second_language.empty?) %>
       <p><i class="fas fa-american-sign-language-interpreting"></i>
-        <% if @profile.native_language || @profile.second_language %>
         <%= @profile.native_language.capitalize if @profile.native_language %>
         <% if @profile.second_language %> &
         <%= @profile.second_language.capitalize %>
         <% end %>
-        <% end %>
       </p>
+      <% end %>
       <% unless @profile.diseases.empty? %>
       <p><i class="fas fa-file-medical"></i>
         <% @profile.diseases.each do |disease| %>
@@ -84,10 +88,12 @@
         <% if @chat.id.nil? %>
           <%= link_to "Message", profile_chats_path([@profile, @chat]), method: :post, class: "btn btn-primary btn-message" %>
         <% else %>
-          <%= link_to "Message", chat_path(@chat, anchor: "message-#{@chat.messages.last.id}"), class: "btn btn-primary btn-message" %>
+          <%= link_to "Message", chat_path(@chat), class: "btn btn-primary btn-message" %>
         <% end %>
       <% else %>
-        <%= link_to "My Messages", chat_path(current_user.chats.last, anchor: "message-#{current_user.chats.last.messages.last.id}"), class: "btn btn-primary btn-message" %>
+        <% if !current_user.chats.empty? %>
+          <%= link_to "My Messages", chat_path(current_user.chats.last), class: "btn btn-primary btn-message" %>
+        <% end %>
       <% end %>
       <%# CHAT BUTTON END %>
     </div>

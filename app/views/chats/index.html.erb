@@ -1,6 +1,7 @@
 <div class="container">
-  <h1>You're not allow to see that chat. Or such chat does not exist. Below are all your private chats:</h1>
-  <ul>
+  <h1 my-4>You're not allow to see that chat. Or such chat does not exist. Or you haven't chat with anyone</h1>
+  <h3>Below are all your private chats:</h3>
+  <ul my-4>
   <% @chats.each do |chat| %>
     <li>
     <% partner_name = current_user == chat.users.first ? chat.users.last.profile.name : chat.users.first.profile.name %>
