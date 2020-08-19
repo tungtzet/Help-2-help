@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <div class="container"> 
 <div class="d-flex justify-content-between flex-wrap">
 
@@ -20,9 +21,33 @@
             
       <!-- Avatar -->
       <% if post.user.profile && post.user.profile.photo.attached? %>
+=======
+<div class="container">
+  <br>
+  <div class="d-flex justify-content-around flex-wrap">
+    <% @posts.each do |post| %>
+    <%= link_to post_path(post), class: "custom-card" do  %>
+    <div class="card-trip mb-5" style="width: 20rem; margin-top:25px;">
+      <%  if post.photos.attached? %>
+      <%= cl_image_tag post.photos.first.key %>
+      <% else %>
+      <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
+      <% end %>
+      <p> </p>
+      <div class="d-flex justify-content-between">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></div>
+      <div class="card-trip-infos justify-content-between">
+        <div>
+        </div>
+        <div>
+          <h2><%= post.title %></h2>
+
+          <!-- Avatar -->
+          <% if post.user.profile && post.user.profile.photo.attached? %>
+>>>>>>> origin
           <%= cl_image_tag post.user.profile.photo.key, class:"card-trip-user avatar-bordered"%>
-        <% else %>
+          <% else %>
           <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "rounded-circle mr-3"%>
+
         <% end %> 
         
         <p><%= post.content %></p>
@@ -44,8 +69,10 @@
             <% end %>
           <% end %>
         <% if post.user == current_user %>
+
           <%= link_to "🗑️", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
           <%= link_to "✏️", edit_post_path(post) %>
+<<<<<<< HEAD
         <% end %> </i>
      </div>
       
@@ -53,8 +80,14 @@
      </div>
 
 
+=======
+          <% end %> </i>
+        </div>
+      </div>
+>>>>>>> origin
     </div>
-  <% end %>
- <% end %>
+    <% end %>
+    <% end %>
+  </div>
 </div>
 

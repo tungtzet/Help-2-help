@@ -4,30 +4,32 @@
   padding: 150px 0;
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
+// .banner p {
+//   font-size: 20px;
+//   color: white;
+//   opacity: .7;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+// }
 
 #banner-home {
   height: 600px;
-  text-align: right;
-  position: relative;
+  // text-align: right;
+  // position: relative;
 
-  h1 {
+  h2 {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
     position: absolute;
-    bottom: 128px;
-    right: 400px;
+    margin-top: 70px;
+    margin-left: auto;
+    // margin: 0 auto;
+    // text-align: center;
+    // bottom: 128px;
+    // bottom: 75px;
+    // right: 130px;
+    // right: 610px;
     z-index: 1;
     &:after {
       content: "";
@@ -41,6 +43,52 @@
       opacity: 0.8;
       // background-image: linear-gradient(rgba(238,232,9,0),rgba(238,232,9,0) 50%,rgba(238,232,9,.6) 51%,rgba(238,232,9,.6));
       // transition: all .25s ease;
+    }
+  }
+}
+
+.btn-secondary.btn-search {
+  background-color: #fff500;
+  color: black;
+  // text-shadow: 2px 3px 3px rgba(0,0,0,0.4);
+  border-radius: 20px;
+  width: 120px;
+  margin-left: 10px;
+    // outline: none;
+    border: none;
+  // border-color: none !important;
+}
+
+#banner-home-two {
+    height: 600px;
+  // text-align: right;
+  // position: relative;
+
+  h2 {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    margin-top: 16%;
+    margin-left: 30%;
+    // margin: 0 auto;
+    // text-align: center;
+    // bottom: 128px;
+    // bottom: 75px;
+    // right: 130px;
+    // right: 610px;
+    z-index: 1;
+    &:after {
+      content: "";
+      width: 100%;
+      z-index: -1;
+      height: 20px;
+      position: absolute;
+      bottom: -4px;
+      right: 24px;
+      background: #fff500;
+      opacity: 0.8;
     }
   }
 }

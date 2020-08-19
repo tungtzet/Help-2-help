@@ -21,7 +21,7 @@
       <p>wants to get in touch with me. I will respond with an open heart.</p> <%# friendship.created_at %>
     </div>
 
-    <div class="notification-actions">
+    <div class="notification-actions respond-actions">
       <%= link_to "Accept", user_friendship_path(friendship, friendship: { status: 'accepted' }), method: :patch, remote: true %>
       <%= link_to "Deny", user_friendship_path(friendship, friendship: { status: 'rejected' }), method: :patch, remote: true %>
     </div>
@@ -52,9 +52,16 @@
   <div class="cards mb-5">
   <% @friendships.each do |friendship| %>
     <% profile = current_user == friendship.receiver ? friendship.asker.profile : friendship.receiver.profile %>
+    <% common_chats = current_user.chats & profile.user.chats %>
+    <% chat = common_chats.empty? ? Chat.new : common_chats.first %>
     <div class="card-category friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
       url(<%= cl_image_path profile.photo.key if profile.photo.attached? %>)">
       <%= link_to profile.name, profile_path(profile) %>
+      <% if chat.id.nil? %>
+      <%= link_to "", profile_chats_path([profile, chat]), method: :post, class: "fas fa-comments btn" %>
+      <% else %>
+      <%= link_to "", chat_path(chat), class: "fas fa-comments btn" %>
+      <% end %>
     </div>
   <% end %>
   </div>

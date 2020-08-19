@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  &.search-results {
+    grid-gap: 32px;
+    margin: 80px 0;
+  }
 }
 
 // Smallest device
@@ -11,8 +15,19 @@
   }
 }
 
+<<<<<<< HEAD
 
 .custom-card > img,
+=======
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
+.custom-card > img
+>>>>>>> origin
  {
    height: 300px;
    width: 100%;
@@ -50,7 +65,6 @@ a.custom-card:hover {
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -78,7 +92,6 @@ a.custom-card:hover {
   width: 40px;
   margin: 36px;
 }
-
 
 .card-trip-infos h2 {
   color: white;
@@ -110,6 +123,7 @@ a.custom-card:hover {
   height: 180px;
   display: flex;
   justify-content: center;
+  justify-content: space-between;
   align-items: center;
   color: white;
   font-size: 24px;
@@ -118,12 +132,28 @@ a.custom-card:hover {
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   &.friendship {
-    justify-content: left;
+    justify-content: space-between;
     align-items: flex-end;
+    transition: ease .5s;
+    &:hover .fa-comments {
+      opacity: 0.8;
+      transition: ease .5s;
+    }
     a {
       margin: 16px;
       color: #fff500;
       text-decoration: none;
+      padding-right: 0;
+      &.fa-comments {
+        color: white;
+        opacity: 0;
+        transition: ease .5s;
+        &:hover {
+          color: #fff500;
+          opacity: 1;
+          transition: ease .5s;
+        }
+      }
     }
   }
 }
@@ -147,12 +177,12 @@ a.custom-card:hover {
   overflow: hidden;
 }
 
- .card-profile-index:hover {
-    transform: scale(1.01);
-    background-color: #fff5000d;
-    // border-radius: 32px;
-    transition: transform 0.25s ease-out;
-    text-decoration: none;
+.card-profile-index:hover {
+  transform: scale(1.01);
+  background-color: #fff5000d;
+  // border-radius: 32px;
+  transition: transform 0.25s ease-out;
+  text-decoration: none;
 }
 
 .card-profile-index img {
@@ -168,7 +198,6 @@ a.custom-card:hover {
   font-weight: bold;
   margin: 0;
   text-decoration: none;
-
 }
 
 .card-profile-index p {
@@ -184,19 +213,23 @@ a.custom-card:hover {
   padding: 16px;
 }
 
-.card-profile-index-infos h5, h6 {
-  color: black !important;
+.card-profile-index-infos {
+  color: black;
+  opacity: 0.8;
+  h5 {
+    font-weight: bold;
+  }
+  h6 {
+    opacity: 0.6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 320px;
+  }
 }
 
 
-
-
-
-
-
-
-
-
-
-
+.profile-link {
+  text-decoration: none !important;
+}
 

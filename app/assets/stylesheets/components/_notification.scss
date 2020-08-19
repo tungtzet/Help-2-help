@@ -41,9 +41,17 @@
   color: #999999;
   margin-left: 16px;
   font-size: 14px;
+  &:hover {
+    text-decoration: none;
+    color: #F7A43A;
+  }
 }
 
-.notification .notification-actions a:hover {
-  color: #fff500;
-  text-decoration: none;
-}
+.notification .notification-actions.respond-actions a {
+  &:first-child:hover {
+    color: #05A57F;
+  }
+  &:last-child:hover {
+    color: #FF2800;
+  }
+} 
