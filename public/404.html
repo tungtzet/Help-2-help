@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: #F4F4F4;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -16,6 +16,11 @@
     width: 95%;
     max-width: 33em;
     margin: 4em auto 0;
+    display: none;
+  }
+
+  .rails-default-error-page .custom-message {
+    margin-top: 12rem;
   }
 
   .rails-default-error-page div.dialog > div {
@@ -58,10 +63,13 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
+      <h1>We still have not found what you looking for</h1>
       <p>You may have mistyped the address or the page may have moved.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>reach us at help2help@h2h.io.</p>
+  </div>
+  <div class="custom-message">
+    <img src="images/404.png" alt="Maybe it does not exist">
   </div>
 </body>
 </html>
