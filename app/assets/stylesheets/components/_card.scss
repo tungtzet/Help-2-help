@@ -27,7 +27,7 @@
 .custom-card > img
 
  {
-   height: 300px;
+   height: 270px;
    width: 100%;
    object-fit: cover;
 }
@@ -54,7 +54,30 @@ a.custom-card:hover {
 .card-trip h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: -45px;
+  margin: 0;
+}
+
+.card-trip-custom h2 {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  left: 40px;
+  top: -122px;
+  z-index: 1;
+    &:after {
+      content: "";
+      width: 100%;
+      z-index: -25;
+      height: 16px;
+      position: absolute;
+      bottom: -2px;
+      right: 8px;
+      background: #fff500;
+      opacity: 0.65;      // background-image: linear-gradient(rgba(238,232,9,0),rgba(238,232,9,0) 50%,rgba(238,232,9,.6) 51%,rgba(238,232,9,.6));
+      // transition: all .25s ease;
+    }
 }
 
 .card-trip p {
@@ -102,15 +125,14 @@ a.custom-card:hover {
   z-index: 1;
     &:after {
       content: "";
-      width: 128px;
-      z-index: -1;
+      width: 100%;
+      z-index: -25;
       height: 16px;
       position: absolute;
       bottom: -2px;
       right: 8px;
       background: #fff500;
-      opacity: 0.8;
-      // background-image: linear-gradient(rgba(238,232,9,0),rgba(238,232,9,0) 50%,rgba(238,232,9,.6) 51%,rgba(238,232,9,.6));
+      opacity: 0.65;      // background-image: linear-gradient(rgba(238,232,9,0),rgba(238,232,9,0) 50%,rgba(238,232,9,.6) 51%,rgba(238,232,9,.6));
       // transition: all .25s ease;
     }
 }
