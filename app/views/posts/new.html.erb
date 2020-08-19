@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" id="post-container">
   <h1>Post a message: </h1>
   <div class="row justify-content-center">
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="" id="post-form">
    <%= simple_form_for(@post) do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
@@ -9,7 +9,7 @@
   <%= f.submit "Post", :class => "btn btn-success" %>
   <%= link_to 'Cancel', root_path, class: 'btn btn-danger ml2-2'%>
 <% end %>
-
   </div>
   </div>
+  <div class="circle-chat-post"></div>
 </div>
