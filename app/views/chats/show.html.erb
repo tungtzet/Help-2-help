@@ -20,10 +20,14 @@
     </div>
 <!-- CHAT FIELD -->
     <div class="col" id="chat-avatar">
-      <h4>
-        <%= cl_image_tag @partner_profile.photo.key, width: 160, height: 160, gravity: :face, crop: :fill if @partner_profile.photo.attached? %>
-        <%= link_to @partner_profile.name, profile_path(@partner_profile) %>
-      </h4>
+
+      <h1 class="chat-user-link">
+        <%= link_to profile_path(@partner_profile) do %>
+          <%= cl_image_tag @partner_profile.photo.key, width: 200, height: 200, gravity: :face, crop: :fill if @partner_profile.photo.attached? %>
+          <%= @partner_profile.name %>
+        <% end %>
+      </h1>
+
       <div class="col scroller" id="chat-page">
         <div id="messages" data-chat-id="<%= @chat.id %>">
           <% @chat.messages.each do |message| %>

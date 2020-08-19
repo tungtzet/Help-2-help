@@ -1,4 +1,8 @@
 // Specific CSS for your home-page
+#minimun-height {
+  min-height: calc(100vh - 250px)
+}
+
 .btn-cta {
   position:absolute;
   padding-left: 40px;

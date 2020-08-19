@@ -28,9 +28,9 @@
             <%= link_to "Create A Profile", new_profile_path, class: "btn fas fa-user-circle" %>
           <% end %>
         </li>
-        
+
         <li class="nav-item dropdown ml-4">
-          
+
             <% if current_user.profile && current_user.profile.photo.attached? %>
               <%= cl_image_tag current_user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
@@ -42,7 +42,7 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-  
+
         <% else %>
           <li class="nav-item">
             <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>

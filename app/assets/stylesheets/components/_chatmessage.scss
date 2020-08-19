@@ -78,6 +78,7 @@
   border-right: 1px solid lightgrey;
   padding-left: 40px;
   list-style-type: none;
+
   h4 {
     font-weight: bold;
     color:#05A57F;
@@ -142,4 +143,12 @@
   img {
     margin-left: 8px
   }
+}
+
+.chat-user-link a {
+  color: grey;
+}
+.chat-user-link:hover a {
+  text-decoration: none;
+  color: black;
 }
