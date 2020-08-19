@@ -13,7 +13,11 @@
           <% else %>
           <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar" %>
           <% end %>
-          <%= link_to partner_profile.name, chat_path(chat, anchor: "message-#{chat.messages.last.id}") %>
+          <% if chat.messages.empty? %>
+            <%= link_to partner_profile.name, chat_path(chat) %>
+          <% else %>
+            <%= link_to partner_profile.name, chat_path(chat, anchor: "message-#{chat.messages.last.id}") %>
+          <% end %>
         </li>
       </div>
       <% end %>
