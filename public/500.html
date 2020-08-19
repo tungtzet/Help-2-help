@@ -4,8 +4,9 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+  
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: #F4F4F4;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -16,6 +17,11 @@
     width: 95%;
     max-width: 33em;
     margin: 4em auto 0;
+    display: none;
+  }
+
+  .rails-default-error-page .custom-message {
+    margin-top: 12rem;
   }
 
   .rails-default-error-page div.dialog > div {
@@ -58,9 +64,13 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1>You see? We also need help sometimes. There are some internal errors but not inside us.</h1>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>Please reach out to us at help2help@h2h.io</p>
   </div>
+  <div class="custom-message">
+    <img src="images/500.png" alt="There are some internal errors but not inside us">
+  </div>
+ 
 </body>
 </html>
