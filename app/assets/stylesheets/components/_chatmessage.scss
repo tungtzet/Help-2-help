@@ -43,6 +43,7 @@ h1 {
 #chat-page {
   height: 300px;
   overflow-y: scroll;
+  height: 450px;
 }
 
 #chat-avatar {
@@ -67,6 +68,7 @@ h1 {
   padding-left: 20px;
   border-right: 1px solid lightgrey;
   padding-left: 40px;
+  list-style-type: none;
 }
 
 .chat-container {
