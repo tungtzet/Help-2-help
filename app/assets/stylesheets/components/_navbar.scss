@@ -18,3 +18,12 @@
 .nav-item a:hover {
   color: #fff500;
 }
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
