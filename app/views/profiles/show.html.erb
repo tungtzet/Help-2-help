@@ -87,7 +87,9 @@
           <%= link_to "Message", chat_path(@chat), class: "btn btn-primary btn-message" %>
         <% end %>
       <% else %>
-        <%= link_to "My Messages", chat_path(current_user.chats.last, anchor: "message-#{current_user.chats.last.messages.last.id}"), class: "btn btn-primary btn-message" %>
+        <% if !current_user.chats.empty? %>
+          <%= link_to "My Messages", chat_path(current_user.chats.last), class: "btn btn-primary btn-message" %>
+        <% end %>
       <% end %>
       <%# CHAT BUTTON END %>
     </div>
