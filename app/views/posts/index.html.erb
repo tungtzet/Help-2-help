@@ -22,7 +22,7 @@
    <div class="flexBox" style="
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;align-items: center;padding:8px;opacity: .7;"><%= post.created_at.strftime("%m/%d/%Y")  %>
+    justify-content: space-between;align-items: center;padding:8px;opacity: .6;font-size: 13px;"><%= post.created_at.strftime("%m/%d/%Y")  %>
 
     <i class="text-primary">  <%= post.likes.count %> <%= (post.likes.count) == 1 ? ' Like' : 'Likes'%></i>
     </div>
