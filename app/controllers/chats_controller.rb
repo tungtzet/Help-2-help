@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
-  
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
+
   def index
     @chats = policy_scope(Chat).includes(:user_chats).where(user_chats: {user: current_user});
   end
@@ -7,10 +8,11 @@ class ChatsController < ApplicationController
   def show
     @chats = policy_scope(Chat).includes(:user_chats).where(user_chats: {user: current_user});
     @chat = Chat.find(params[:id])
+    authorize @chat
     @partner_profile = current_user == @chat.users.first ? @chat.users.last.profile : @chat.users.first.profile
     @message = Message.new
-    authorize @chat
   end
+
   def create
     @chat = Chat.new
     authorize @chat
@@ -22,6 +24,17 @@ class ChatsController < ApplicationController
     else
       render 'profiles/show'
     end
+  end
+
+  def user_not_authorized(exception)
+    # Send it to chat index that is specific for Chat Pundit not allowed
+    flash[:error] = exception.policy.try(:error_message) || "You're not allow to see the chat"
+    redirect_to chats_path 
+  end
+
+  def handle_record_not_found
+    # Send it to chat index that is specific for Chat not found
+    redirect_to chats_path 
   end
 
   private
