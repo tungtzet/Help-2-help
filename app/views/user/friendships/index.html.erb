@@ -60,7 +60,7 @@
       <% if chat.id.nil? %>
       <%= link_to "", profile_chats_path([profile, chat]), method: :post, class: "fas fa-comments btn" %>
       <% else %>
-      <%= link_to "", chat_path(chat), class: "fas fa-comments btn" %>
+      <%= link_to "", chat_path(chat, anchor: "message-#{chat.messages.last.id}"), class: "fas fa-comments btn" %>
       <% end %>
     </div>
   <% end %>
