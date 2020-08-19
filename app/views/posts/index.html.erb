@@ -22,7 +22,10 @@
    <div class="flexBox" style="
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %> <%= post.created_at.strftime("%I:%M%p")  %></div>
+    justify-content: space-around;align-items: center;">  <i class="far fa-clock pr-2"> </i>
+    <%= post.created_at.strftime("%m/%d/%Y")  %>
+    <i class="text-primary">  <%= post.likes.count %> <%= (post.likes.count) == 1 ? ' 👍 Like ' : ' 👍👍 Likes '%> </i>
+    <%= post.created_at.strftime("%I:%M%p")  %></div>
     <div class="card-trip-infos">
       <div>
     
@@ -52,8 +55,12 @@
             <% end %>
           <% end %>
         <% if post.user == current_user %>
-          <%= link_to "🗑️", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "btn-primary" %>
-          <%= link_to "✏️", edit_post_path(post) %>
+          <%= link_to post_path(post), data: { confirm: 'Are you sure?'}, method: :delete do %>
+            <i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete Post"></i>
+          <% end %>
+          <%= link_to edit_post_path(post) do %>
+            <i class="fas fa-edit" aria-hidden="true" ata-toggle="tooltip" data-placement="top" title="Edit Post"></i>
+          <% end %>
         <% end %> </i>
      </div>
       

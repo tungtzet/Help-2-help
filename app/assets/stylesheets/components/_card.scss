@@ -81,13 +81,13 @@ a.custom-card:hover {
 }
 
 .card-trip p {
-  font-size: 12px;
-  opacity: .7;
+  font-size: 15px;
+  opacity: .8;
   margin: 0;
 }
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 6px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -101,15 +101,14 @@ a.custom-card:hover {
 
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 14px;
-  top: -312px;
+  top: -297px;
   width: 40px;
 }
 
 .card-trip-infos .card-trip-likes {
   position: absolute;
   right: -21px;
-  top: -273px;
+  top: -292px;
   width: 40px;
   margin: 36px;
 }
