@@ -72,7 +72,7 @@
         </div>
       </div>
       <% else %>
-      <%= link_to "Add Friend", profile_friendships_path([@profile, @friendship], friendship: { status: 'pending' }), method: :post, remote: true, class: "btn btn-primary" %>
+      <%= link_to "Add Friend", profile_friendships_path([@profile, @friendship], friendship: { status: 'pending' }), method: :post, remote: true, class: "btn btn-primary btn-add-friend" %>
       <% end %>
       <% else %>
       <%= link_to "Edit Profile", edit_profile_path(@profile), class: "btn btn-warning btn-edit-profile" %>
