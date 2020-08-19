@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-  
+
   def index
     @chats = policy_scope(Chat).includes(:user_chats).where(user_chats: {user: current_user});
   end
@@ -11,6 +11,7 @@ class ChatsController < ApplicationController
     @message = Message.new
     authorize @chat
   end
+
   def create
     @chat = Chat.new
     authorize @chat
@@ -25,6 +26,7 @@ class ChatsController < ApplicationController
   end
 
   private
+
   def chat_params
     params.require(:chat).permit(:name)
   end

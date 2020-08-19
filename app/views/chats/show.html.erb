@@ -20,9 +20,11 @@
     </div>
 <!-- CHAT FIELD -->
     <div class="col" id="chat-avatar">
-      <h1>
-        <%= cl_image_tag @partner_profile.photo.key, width: 200, height: 200, gravity: :face, crop: :fill if @partner_profile.photo.attached? %>
-        <%= @partner_profile.name %>
+      <h1 class="chat-user-link">
+        <%= link_to profile_path(@partner_profile) do %>
+          <%= cl_image_tag @partner_profile.photo.key, width: 200, height: 200, gravity: :face, crop: :fill if @partner_profile.photo.attached? %>
+          <%= @partner_profile.name %>
+        <% end %>
       </h1>
       <div class="col scroller" id="chat-page">
         <div id="messages" data-chat-id="<%= @chat.id %>">

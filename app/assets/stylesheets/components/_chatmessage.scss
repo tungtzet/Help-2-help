@@ -67,7 +67,7 @@ h1 {
   padding-left: 20px;
   border-right: 1px solid lightgrey;
   padding-left: 40px;
-   list-style-type: none;
+  list-style-type: none;
 }
 
 .person {
@@ -121,4 +121,12 @@ h1 {
   img {
     margin-left: 8px
   }
+}
+
+.chat-user-link a {
+  color: grey;
+}
+.chat-user-link:hover a {
+  text-decoration: none;
+  color: black;
 }
