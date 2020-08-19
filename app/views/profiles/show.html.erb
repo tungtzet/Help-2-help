@@ -15,16 +15,20 @@
 
     <!-- DESCRIPTION -->
     <div  class="container profile-description">
-      <p><i class="fas fa-map-marker-alt"></i> <%= @profile.address if @profile.address %></p>
-      <p><i class="fas fa-highlighter"></i> <%= @profile.bio if @profile.bio %></p>
+      <% if @profile.address && !@profile.address.empty? %>
+      <p><i class="fas fa-map-marker-alt"></i> <%= @profile.address %></p>
+      <% end %>
+      <% if @profile.bio && !@profile.bio.empty? %>
+      <p><i class="fas fa-highlighter"></i> <%= @profile.bio %></p>
+      <% end %>
+      <% if (@profile.native_language && !@profile.native_language.empty?) || (@profile.second_language && !@profile.second_language.empty?) %>
       <p><i class="fas fa-american-sign-language-interpreting"></i>
-        <% if @profile.native_language || @profile.second_language %>
         <%= @profile.native_language.capitalize if @profile.native_language %>
         <% if @profile.second_language %> &
         <%= @profile.second_language.capitalize %>
         <% end %>
-        <% end %>
       </p>
+      <% end %>
       <% unless @profile.diseases.empty? %>
       <p><i class="fas fa-file-medical"></i>
         <% @profile.diseases.each do |disease| %>
