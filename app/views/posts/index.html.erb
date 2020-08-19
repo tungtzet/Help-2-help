@@ -13,10 +13,10 @@
       <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
     <% end %>
     
-   <div class="card-trip">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></div>
+   <div class="card-trip mt-3">  <i class="far fa-clock pr-2"> </i><%= post.created_at.strftime("%m/%d/%Y")  %> <%= post.created_at.strftime("%I:%M%p")  %></div>
     <div class="card-trip-infos">
       <div>
-        <h2><%= post.title %></h2>
+        <h2 class="card-trip-h2"><%= post.title %></h2>
             
       <!-- Avatar -->
       <% if post.user.profile && post.user.profile.photo.attached? %>
