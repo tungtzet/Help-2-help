@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-between flex-wrap">
 
   <% posts.each do |post| %>
-  <div class="card-trip mb-5" style="width: 20rem;" id="cart-trip-test">
+  <div class="card-trip mb-5 cart-trip-test" style="width: 20rem;">
     <%  if post.photos.attached? %>
       <%= cl_image_tag post.photos.first.key %>
     <% else %>
