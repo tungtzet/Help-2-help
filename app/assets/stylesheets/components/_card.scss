@@ -139,14 +139,18 @@ a.custom-card:hover {
     }
 }
 
-.card-trip-infos p {
-  display: -webkit-box;
-  max-width: 95%;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+// .card-trip-infos p {
+//   display: -webkit-box;
+//   max-width: 95%;
+//   -webkit-line-clamp: 6;
+//   -webkit-box-orient: vertical;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
 
+// }
+
+p.card-home-text{
+  margin: 10px;
 }
 
 .card-trip-infos .par-card p {
@@ -320,4 +324,44 @@ a.custom-card:hover {
     font-style: normal;
     color: #20c997 !important;
   }
+}
+
+.card-trip.card-post:hover {
+  .icons-edit-delete {
+    opacity: 1;
+  }
+}
+
+.card-trip-infos .icons-edit-delete {
+  position: absolute;
+  margin-top: 10px;
+  // left: 12px;
+  top: -297px;
+  width: 40px;
+  opacity: 0;
+  a {
+    color: yellow;
+    &:hover {
+      color: #20c997;
+    }
+  }
+}
+
+
+.card-trip .card-trip-infos.card-post-info {
+  padding: 6px;
+  padding-bottom: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 10px;
+  .card-post-text {
+    display: -webkit-box;
+    max-width: 95%;
+    height: 160px;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
 }
