@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-between flex-wrap">
 
   <% @posts.each do |post| %>
-  <div class="card-trip mt-5 mb-5" style="width: 20rem;">
+  <div class="card-trip mt-5 mb-5" id="post-<%= post.id %>" style="width: 20rem;">
   <%= link_to post_path(post), class: "custom-card mb-5" do  %>
  
     

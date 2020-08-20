@@ -36,4 +36,4 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initModal();
   initChatCable();
-});
+ });

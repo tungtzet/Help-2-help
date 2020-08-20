@@ -8,7 +8,7 @@ class LikesController < ApplicationController
     else
       @post.likes.create(user_id: current_user.id)
     end
-    redirect_to posts_path
+    redirect_to posts_path(anchor: "post-#{@post.id}")
     authorize @post
   end
 
@@ -19,7 +19,7 @@ class LikesController < ApplicationController
     else
       @like.destroy
     end
-    redirect_to posts_path
+    redirect_to posts_path(anchor: "post-#{@post.id}")
   end
 
   private
