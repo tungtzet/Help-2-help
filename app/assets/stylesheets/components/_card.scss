@@ -146,11 +146,15 @@ a.custom-card:hover {
 
 }
 
+.card-trip-infos .par-card p {
+  margin: 10px;
+} 
+
 .icons-post-edit {
   visibility: hidden;
   position: relative;
-  left: 220px;
-  top: -40px;
+  left: 10px;
+  top: -160px;
   z-index: 2;
   margin-top: -30px;
   a {
