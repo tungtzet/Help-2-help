@@ -11,7 +11,7 @@
     z-index: 1;
     &:after {
       content: "";
-      width: 320px;
+      width: 240px;
       z-index: -1;
       height: 16px;
       position: absolute;
@@ -55,4 +55,11 @@
     animation-timing-function: ease-in-out;
     bottom: 0;
     right: 0;
+}
+
+
+.post-show {
+  .fa-trash, .fa-edit {
+    color: orange;
+  }
 }
