@@ -137,6 +137,42 @@ a.custom-card:hover {
     }
 }
 
+.card-trip-infos p {
+  display: -webkit-box;
+  max-width: 95%;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.icons-post-edit {
+  visibility: hidden;
+  position: relative;
+  left: 220px;
+  top: -40px;
+  z-index: 2;
+  margin-top: -30px;
+  a {
+    color: white;
+  }
+}
+
+
+#cart-trip-test:hover {
+  a {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: #fff500;
+  }
+}
+  .icons-post-edit {
+    visibility: visible;
+  }
+}
+
 .card-category {
   background-size: cover;
   background-position: center;
