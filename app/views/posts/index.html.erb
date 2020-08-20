@@ -31,7 +31,7 @@
     
           <!-- Avatar -->
           <% if post.user.profile && post.user.profile.photo.attached? %>
-              <%= cl_image_tag post.user.profile.photo.key, class:"card-trip-user avatar-bordered"%>
+              <%= cl_image_tag post.user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class:"card-trip-user avatar-bordered"%>
             <% else %>
               <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "rounded-circle mr-3"%>
             <% end %> 
