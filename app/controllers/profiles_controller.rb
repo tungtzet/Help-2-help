@@ -74,7 +74,7 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find(params[:id]) rescue not_found
   end
 
   def profile_params

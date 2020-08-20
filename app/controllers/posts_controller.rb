@@ -51,12 +51,12 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def set_post
-    @post = Post.find(params[:id])
-  end
-
-
+  
   private
+
+  def set_post
+    @post = Post.find(params[:id]) rescue not_found
+  end
 
   def post_params
     params.require(:post).permit(:title, :content, :user_id, :post_id, photos: [])
