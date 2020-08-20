@@ -1,10 +1,37 @@
 <div class="container"> 
-  <div class="d-flex justify-content-between flex-wrap">
-    <% @posts.each do |post| %>
-      <div class="card-trip mt-5 mb-5" id="post-<%= post.id %>" style="width: 20rem;">
-        <%= link_to post_path(post), class: "custom-card mb-5" do  %>
-            <%  if post.photos.attached? %>
-              <%= cl_image_tag post.photos.first.key %>
+
+<div class="d-flex justify-content-between flex-wrap">
+
+  <% @posts.each do |post| %>
+  <div class="card-trip mt-5 mb-5" id="post-<%= post.id %>" style="width: 20rem;">
+  <%= link_to post_path(post), class: "custom-card mb-5" do  %>
+ 
+    
+    <%  if post.photos.attached? %>
+      <%= cl_image_tag post.photos.first.key %>
+    <% else %>
+      <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
+    <% end %>
+    
+    <div class="card-trip-infos">
+        <h2><%= post.title %></h2>
+    </div>         
+    
+       
+
+   <div class="flexBox" style="
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;align-items: center;padding:8px;opacity: .6;font-size: 13px;"><%= post.created_at.strftime("%m/%d/%Y")  %>
+
+    <i class="text-primary">  <%= post.likes.count %> <%= (post.likes.count) == 1 ? ' Like' : 'Likes'%></i>
+    </div>
+    <div class="card-trip-infos">
+      <div>
+    
+          <!-- Avatar -->
+          <% if post.user.profile && post.user.profile.photo.attached? %>
+              <%= cl_image_tag post.user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class:"card-trip-user avatar-bordered"%>
             <% else %>
               <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
             <% end %>

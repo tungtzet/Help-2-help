@@ -57,7 +57,7 @@ class ProfilesController < ApplicationController
   def update
     authorize @profile
     if @profile.update(profile_params)
-      # raise
+      UserDisease.create(profile: @profile, disease: Disease.find(params[:profile][:disease]))
       redirect_to profile_path(@profile)
     else
       render new
@@ -74,7 +74,7 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find(params[:id]) rescue not_found
   end
 
   def profile_params

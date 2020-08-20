@@ -30,8 +30,13 @@
   color: lightgrey;
 }
 
+.chat-user-name {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
 .user-message-content{
-  margin-top: -8px;
+  margin-top: -4px;
 }
 
 #chat-avatar {

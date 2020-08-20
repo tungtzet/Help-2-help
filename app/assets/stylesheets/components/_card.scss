@@ -136,6 +136,48 @@ a.custom-card:hover {
     }
 }
 
+.card-trip-infos p {
+  display: -webkit-box;
+  max-width: 95%;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.card-trip-infos .par-card p {
+  margin: 10px;
+} 
+
+.icons-post-edit {
+  visibility: hidden;
+  position: relative;
+  left: 10px;
+  top: -160px;
+  z-index: 2;
+  margin-top: -30px;
+  a {
+    color: white;
+  }
+}
+
+
+.cart-trip-test:hover {
+  a {
+  color: #fff500;
+  opacity: 0.65;
+  text-decoration: none;
+  &:hover {
+    color: #fff500;
+    opacity: 1;
+  }
+}
+  .icons-post-edit {
+    visibility: visible;
+  }
+}
+
 .card-category {
   background-size: cover;
   background-position: center;

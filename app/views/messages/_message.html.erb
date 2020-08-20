@@ -1,4 +1,5 @@
-<div class="message-container <%= "current-user" if message.user==current_user %>" id="message-<%= message.id %>">
+<% custom_class = current_user==message.user ? "partner" : "current-user"  %>
+<div class="message-container <%= custom_class %>" id="message-<%= message.id %>">
   <% if current_user.profile && current_user.profile.photo.attached? %>
     <%= cl_image_tag current_user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class: "avatar" %>
   <% else %>
