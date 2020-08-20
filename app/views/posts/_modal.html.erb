@@ -1,0 +1,29 @@
+
+<div class="live-with-modal" >
+ <!-- if statement only for signed in users without profile -->
+
+
+ <!-- Button trigger modal -->
+
+ <!-- Modal -->
+  <div class="modal fade" id="post-<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <h1><%= post.title %></h1>
+          <p><%= post.content %></p>       
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
