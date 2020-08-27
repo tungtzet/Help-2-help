@@ -31,7 +31,7 @@ gem 'devise'
 gem 'pundit'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 gem 'cloudinary', '~> 1.12.0'
 
 # Geocoding

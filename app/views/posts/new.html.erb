@@ -2,10 +2,15 @@
   <h1>Post a message: </h1>
   <div class="row justify-content-center">
     <div class="" id="post-form">
-   <%= simple_form_for(@post) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= simple_form_for(@post) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  </div>
+  <div class="form-inputs">
+    <%= f.rich_text_area :rich_body %>
+  </div>
   <%= f.submit "Post", :class => "btn btn-success" %>
   <%= link_to 'Cancel', root_path, class: 'btn btn-danger ml2-2'%>
 <% end %>
