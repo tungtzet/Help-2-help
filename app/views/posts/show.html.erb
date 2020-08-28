@@ -47,4 +47,7 @@ url(<%= cl_image_path @post.photos.first.key if @post.photos.attached? %>);">
     <%= @post.content %>
   </p>
 
+  <% if @post.rich_body %>
+    <%= @post.rich_body %>
+  <% end %>
 </div>

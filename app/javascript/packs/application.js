@@ -37,3 +37,6 @@ document.addEventListener('turbolinks:load', () => {
   // initModal();
   initChatCable();
  });
+
+require("trix")
+require("@rails/actiontext")
