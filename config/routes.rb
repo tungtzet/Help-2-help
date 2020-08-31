@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  # Sidekiq Web UI, only for admins.
+  # require "sidekiq/web"
+  # authenticate :user, ->(user) { user.admin? } do
+  #   mount Sidekiq::Web => '/sidekiq'
+  # end
+
   devise_for :users, controllers: {:registrations => "registrations"}
   root to: 'pages#home'
   get '/user' => "posts#index", as: :user_root
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :profiles do
     resources :user_diseases, only: :create
