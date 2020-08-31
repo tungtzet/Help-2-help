@@ -34,6 +34,7 @@ gem 'nokogiri'
 # Authentication & Authorization
 gem 'devise'
 gem 'pundit'
+gem 'rails_admin', '~> 2.0'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
