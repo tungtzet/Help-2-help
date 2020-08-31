@@ -31,10 +31,11 @@ gem 'sidekiq-failures', '~> 1.0'
 gem 'faker'
 gem 'nokogiri'
 
-# Authentication & Authorization
+# Authentication & Authorization & Admin
 gem 'devise'
 gem 'pundit'
 gem 'rails_admin', '~> 2.0'
+gem 'blazer'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'

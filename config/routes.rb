@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  authenticate :user, ->(user) { user.admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
   # Sidekiq Web UI, only for admins.
   # require "sidekiq/web"
   # authenticate :user, ->(user) { user.admin? } do
