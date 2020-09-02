@@ -47,7 +47,33 @@
         <% end %>
       </div>
       <% end %>
-      
-
     </div>
+
+    <%# PAGINATION %>
+    <nav aria-label="Post navigation" class="posts-pagination my-5">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <% if @page > 0 %>
+            <%= link_to posts_path(page: @page -1), class: "page-link", aria: { label: 'Previous' } do %>
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            <% end %>
+          <% end %>
+        </li>
+        <% (0..(@number_of_pages)).each do |i| %>
+          <li class="page-item <%= 'active' if @page==i %>">
+            <%= link_to "#{i+1}", posts_path(page: i), class: "page-link" %>
+          </li>
+        <% end %>
+
+        <li class="page-item">
+          <% if @posts.count == 6 %>
+            <%= link_to posts_path(page: @page +1), class: "page-link", aria: { label: 'Next' } do %>
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
 </div>
