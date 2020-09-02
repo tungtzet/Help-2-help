@@ -1,16 +1,19 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :edit]
-  # Lets have a look at all posts
+  POSTS_PER_PAGE = 6
   def index
+    @page = params.fetch(:page, 0).to_i
+
     sql_join = "INNER JOIN users ON posts.user_id=users.id INNER JOIN friendships 
     ON (users.id=friendships.receiver_id AND friendships.asker_id=#{current_user.id})
     OR (users.id=friendships.asker_id AND friendships.receiver_id=#{current_user.id})
     OR (users.id=#{current_user.id})"
     sql_condition = "friendships.status= ?"
-    @posts = policy_scope(Post).joins(sql_join).where(sql_condition, "accepted").distinct
-    # or(policy_scope(Post).where(user: current_user))
-    # OR (users.id=#{current_user.id})
-    # .where.not(user: current_user)
+
+    all_posts = policy_scope(Post).joins(sql_join).where(sql_condition, "accepted").distinct.order('updated_at DESC')
+    @number_of_pages = all_posts.count / POSTS_PER_PAGE
+    @posts = all_posts.offset(@page*POSTS_PER_PAGE).limit(POSTS_PER_PAGE)
+
     # raise
   end
 
