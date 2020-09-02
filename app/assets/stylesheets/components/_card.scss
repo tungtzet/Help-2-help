@@ -365,3 +365,75 @@ p.card-home-text{
   }
   
 }
+
+.cards.posts {
+  grid-gap: 3rem;
+}
+
+
+.card-post-top {
+  .avatar {
+  width: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  }
+
+  i.fa-heart {
+    float: right;
+  }
+}
+
+.card.post {
+  border: none;
+  border-bottom: 4px solid #fff500;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  
+  .post-header {
+    background-size: cover;
+    background-position: center;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    h3.card-post-title {
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      font-size: 24px;
+      font-weight: bold;
+      // &::first-letter {
+      //   background: yellow;
+      // }
+    }
+  }
+
+  .post-link {
+    color: black;
+    opacity: 0.6;
+    &:hover {
+      text-decoration: none;
+      color: green;
+    }
+  }
+  .card-post-summary {
+    display: -webkit-box;
+      max-width: 95%;
+      height: 120px;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 4px;
+  }
+}
+
+
+.card-post-info {
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.3;
+  font-size: small;
+  line-height: 1;
+  .likes {
+    color: #1ba37a;
+  }
+}
