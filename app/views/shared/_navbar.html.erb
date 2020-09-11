@@ -12,26 +12,26 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
          <li class="nav-item">
-          <%= link_to "", new_post_path, class: "fas fa-paper-plane btn" %>
+          <%= link_to "", new_post_path, class: "fas fa-paper-plane btn #{'current-page' if current_page?(new_post_path)}" %>
         </li>
         <li class="nav-item" >
-         <%= link_to "", posts_path, class: "fas fa-rss btn" %>
+         <%= link_to "", posts_path, class: "fas fa-rss btn #{'current-page' if current_page?(posts_path)}" %>
         </li>
         <li class="nav-item">
 
           <% if current_user.chats.empty? %>
-            <%= link_to "", chats_path, class: "fas fa-comments btn" %>
+            <%= link_to "", chats_path, class: "fas fa-comments btn #{'current-page' if current_page?(chats_path)}" %>
           <% else %>
             <% if current_user.chats.last.messages.empty? %>
-              <%= link_to "", chat_path(current_user.chats.last), class: "fas fa-comments btn" %>
+              <%= link_to "", chat_path(current_user.chats.last), class: "fas fa-comments btn #{'current-page' if params[:controller] == 'chats'}" %>
             <% else %>
-              <%= link_to "", chat_path(current_user.chats.last, anchor: "message-#{current_user.chats.last.messages.last.id}"), class: "fas fa-comments btn" %>
+              <%= link_to "", chat_path(current_user.chats.last, anchor: "message-#{current_user.chats.last.messages.last.id}"), class: "fas fa-comments btn #{'current-page' if params[:controller] == 'chats'}" %>
             <% end %>
           <% end %>
 
         </li>
         <li class="nav-item">
-          <%= link_to "", user_friendships_path, class: "fas fa-users btn" %>
+          <%= link_to "", user_friendships_path, class: "fas fa-users btn #{'current-page' if current_page?(user_friendships_path)}" %>
         </li>
         <li class="nav-item">
           <% if !current_user.profile %>
