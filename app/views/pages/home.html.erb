@@ -4,16 +4,15 @@
 <div class="banner mb-5" id="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('https://res.cloudinary.com/tungtzet/image/upload/v1597141144/hugging-each-other_new_a7nz0r.jpg');">
   <div class="container">
 
-    <!-- form with question -->
-
+<!-- form with question -->
     <div class="container">
       <%= form_tag profiles_path, method: :get do %>
       <!-- <div class="form-row"> -->
-        <div class="col-7 d-flex" style="margin: 0 auto; margin-top: 25%;">
+        <div class="col-7" style="margin: 0 auto; margin-top: 25%;">
           <%= text_field_tag :disease,
           params[:disease],
           class: "form-control",
-            placeholder: "What's your condition?",
+            placeholder: "Find me...",
             style: "border-radius: 20px"
             %>
             <h2>Find people with the same condition.<br>You are not alone.</h2>
@@ -26,6 +25,84 @@
     </div>
   </div>
 </div>
+
+<!-- quotation -->
+<div class="circle"></div>
+<div class="container">
+  <h1 class="my-3 h2h-heading">Help is all around</h1>
+  <div class="quotes mb-5">
+    <blockquote>Help is all around us all the time. We just have to know where to look for, call for and give.
+    There's always someone out there who's been through what you've been through. Like us. Let's help each other!</blockquote>
+  </div>
+</div>
+
+<!-- cards -->
+<div class="container mt-5">
+  <!-- <h2>Are you living with it? Us Too.</h2> -->
+  <div class="cards my-5">
+    <div class="card-trip">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597147974/Women-together_rs9u6c.jpg" />
+      <div class="card-trip-infos">
+        <h2>connect</h2>
+        <div>
+          <p class="card-home-text">Find new people sharing your same condition and start talking.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-trip">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148585/group_therapy_cntq9w.jpg" />
+      <div class="card-trip-infos">
+        <h2>share</h2>
+        <div>
+          <p class="card-home-text">Be inspired by other's stories and share yours as well.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-trip">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148574/lending-hands_wfbk0l.jpg" />
+      <div class="card-trip-infos">
+        <h2>help</h2>
+        <div>
+          <p class="card-home-text">We'd be glad to help you. And we know, you'll help us too.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- banner -->
+<div class="banner mb-5" id="banner-home-two" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('https://res.cloudinary.com/dvf1ekp5b/image/upload/v1597744460/group-picture_fsppdb_do42n1.png');">
+  <div class="container">
+    <h2>We are in this together</h2>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="container" id="testimonials">
+
+  <div class="card-testimonial">
+    <blockquote style="height: 100%;">Having breast cancer is not the end of the world. But still it was a devastating experience for me. Thank to Help2Help, I've found friends with the same condition and we shared a lot. It really help me!</blockquote>
+    <div class="author position-absolute">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597908808/main-qimg-2fdc81804883f0683c4e6dfe71b94ab7_fltkab.jpg" alt="sq-sample1"/>
+      <h5>Peng Ming<span> Cancer Survivor</span></h5>
+    </div>
+  </div>
+  <div class="card-testimonial">
+    <blockquote style="height: 100%;">Before I begin, I'd like everyone to notice that as a young person, you can have arthritis. But it's difficult to talk about it with your normal friends. So help2help is a perfect platform to find a true friend with the same condition.</blockquote>
+    <div class="author position-absolute">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597909985/smiling-african-american_xdp3cn.jpg" alt="sq-sample24"/>
+      <h5>Noakimo Haftuiya<span>Young Arthritis Fighter</span></h5>
+    </div>
+  </div>
+  <div class="card-testimonial">
+    <blockquote style="height: 100%;">It's surprising that HIV is still a social stigma. I'm living with it and making peace with it. On this platform, we can meet and talk about it freely and we also share the newest advance medical technology to treat this.</blockquote>
+    <div class="author position-absolute">
+      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597909985/old_man.web_bstx4g.jpg" alt="sq-sample29"/>
+      <h5>David Edmaro<span>HIV Peacemaker</span></h5>
+    </div>
+  </div>
+</div>
+
 
     <!-- carousel -->
  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -74,83 +151,3 @@
     </a>
   </div>
 -->
-
-<!-- quotation -->
-<div class="circle"></div>
-
-<div class="container">
-  <h1 class="my-3 h2h-heading">Help is all around</h1>
-  <div class="quotes mb-5">
-    <blockquote>Help is all around us all the time. We just have to know where to look for, call for and give.
-    There's always someone out there who's been through what you've been through. Like us. Let's help each other!</blockquote>
-  </div>
-</div>
-
-
-<!-- cards -->
-
-<div class="container mt-5">
-  <!-- <h2>Are you living with it? Us Too.</h2> -->
-  <div class="cards my-5">
-    <div class="card-trip">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597147974/Women-together_rs9u6c.jpg" />
-      <div class="card-trip-infos">
-        <h2>connect</h2>
-        <div>
-          <p class="card-home-text">Find new people sharing your same condition and start talking.</p>
-        </div>
-      </div>
-    </div>
-    <div class="card-trip">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148585/group_therapy_cntq9w.jpg" />
-      <div class="card-trip-infos">
-        <h2>share</h2>
-        <div>
-          <p class="card-home-text">Be inspired by other's stories and share yours as well.</p>
-        </div>
-      </div>
-    </div>
-    <div class="card-trip">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597148574/lending-hands_wfbk0l.jpg" />
-      <div class="card-trip-infos">
-        <h2>help</h2>
-        <div>
-          <p class="card-home-text">We'd be glad to help you. And we know, you'll help us too.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- banner -->
-<div class="banner mb-5" id="banner-home-two" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url('https://res.cloudinary.com/dvf1ekp5b/image/upload/v1597744460/group-picture_fsppdb_do42n1.png');">
-  <div class="container">
-    <h2>We are in this together</h2>
-  </div>
-</div>
-
-<!-- TESTIMONIALS -->
-<div class="container d-flex justify-content-between" id="testimonials">
-
-  <div class="card-testimonial justify-content-center">
-    <blockquote style="height: 100%;">Having breast cancer is not the end of the world. But still it was a devastating experience for me. Thank to Help2Help, I've found friends with the same condition and we shared a lot. It really help me!</blockquote>
-    <div class="author position-absolute">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597908808/main-qimg-2fdc81804883f0683c4e6dfe71b94ab7_fltkab.jpg" alt="sq-sample1"/>
-      <h5>Peng Ming<span> Cancer Survivor</span></h5>
-    </div>
-  </div>
-  <div class="card-testimonial justify-content-center">
-    <blockquote style="height: 100%;">Before I begin, I'd like everyone to notice that as a young person, you can have arthritis. But it's difficult to talk about it with your normal friends. So help2help is a perfect platform to find a true friend with the same condition.</blockquote>
-    <div class="author position-absolute">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597909985/smiling-african-american_xdp3cn.jpg" alt="sq-sample24"/>
-      <h5>Noakimo Haftuiya<span>Young Arthritis Fighter</span></h5>
-    </div>
-  </div>
-  <div class="card-testimonial justify-content-center">
-    <blockquote style="height: 100%;">It's surprising that HIV is still a social stigma. I'm living with it and making peace with it. On this platform, we can meet and talk about it freely and we also share the newest advance medical technology to treat this.</blockquote>
-    <div class="author position-absolute">
-      <img src="https://res.cloudinary.com/tungtzet/image/upload/v1597909985/old_man.web_bstx4g.jpg" alt="sq-sample29"/>
-      <h5>David Edmaro<span>HIV Peacemaker</span></h5>
-    </div>
-  </div>
-</div>
