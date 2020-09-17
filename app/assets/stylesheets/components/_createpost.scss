@@ -1,17 +1,12 @@
 #post-container {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border: 1px solid black;
-  text-align: center;
-  width: 30%;
   h1 {
-    width: 320px;
+    font-weight: bold;
     position: relative;
     margin: 0 auto;
     z-index: 1;
     &:after {
       content: "";
-      width: 320px;
+      width: 80%;
       z-index: -1;
       height: 16px;
       position: absolute;
@@ -23,14 +18,6 @@
   }
 }
 
-#post-container {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid lightgrey;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
 
 #post-form {
   width: 100%;
@@ -55,4 +42,19 @@
     animation-timing-function: ease-in-out;
     bottom: 0;
     right: 0;
+}
+
+
+.post-show {
+  .fa-trash, .fa-edit {
+    color: orange;
+  }
+  p {
+    font-style: oblique;
+  }
+}
+
+#post_rich_body {
+  background-color: white;
+  min-height: 256px;
 }

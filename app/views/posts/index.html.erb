@@ -1,62 +1,78 @@
-
-<div class="container">
-  <div class="d-flex justify-content-between flex-wrap">
-    <% @posts.each do |post| %>
-    <div class="card-trip mt-5 mb-5" id="post-<%= post.id %>" style="width: 20rem;">
-      <%= link_to post_path(post), class: "custom-card mb-5" do  %>
-      <%  if post.photos.attached? %>
-      <%= cl_image_tag post.photos.first.key %>
-      <% else %>
-      <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
+<div class="container my-5">
+  <div class="cards posts">
+      <% @posts.each do |post| %>
+      <div class="card post">
+        <% if post.photos.attached? %>
+        <div class="post-header"
+          style="background-image: linear-gradient(0deg, rgba(34,195,160,0.7374300061821604) 0%, rgba(244,255,61,0.13238798937543772) 50%), 
+          url(<%= cl_image_path post.photos.first.key %>)">
+        <% else %>
+        <div class="post-header"
+          style="background-image: linear-gradient(0deg, rgba(34,195,160,0.7374300061821604) 0%, rgba(244,255,61,0.13238798937543772) 50%), 
+          url('https://res.cloudinary.com/tungtzet/image/upload/v1598005559/tjahyag1ko2esvaxzlthilfby6tg.jpg')">
+        <% end %>
+          <div class="card-post-top m-3">
+            <%# AVATAR %>
+            <% if post.user.profile && post.user.profile.photo.attached? %>
+              <%= cl_image_tag post.user.profile.photo.key, width: 40, height: 40, gravity: :face, crop: :fill, class:"avatar"%>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "avatar"%>
+            <% end %>
+            <%# LIKE HEART %>
+            <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+            <% if pre_like %>
+              <%= link_to post_like_path(post, pre_like), method: :delete, remote: true do %>
+                <i class="fas fa-heart text-danger float-right mt-1"
+                data-toggle="tooltip" data-placement="top" title="I like it"></i>
+              <% end %>
+            <% else %>
+            <%= link_to post_likes_path(post), method: :post, remote: true do %>
+              <i class="fas fa-heart text-white float-right mt-1"
+                data-toggle="tooltip" data-placement="top" title="I like it"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <%# POST TITLE %>
+          <h3 class="card-post-title m-3"><%= post.title %></h3>
+        </div>
+        <div class="card-post-info mx-3 mt-3">
+          <p class="date"><%= post.created_at.strftime("%m/%d/%Y") %></p>
+          <% if post.likes.count > 0 %>
+          <p class="likes"><%= post.likes.count %> <%= (post.likes.count) == 1 ? ' Like' : 'Likes'%></p>
+          <% end %>
+        </div>
+        <%= link_to post_path(post), class: "post-link mx-3 mb-3" do  %>
+          <p class="card-post-summary"><%= post.content %></p>
+        <% end %>
+      </div>
       <% end %>
-
-      <div class="card-trip-infos">
-        <h2><%= post.title %></h2>
-      </div>
-      <div class="flexBox" style="
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;align-items: center;padding:8px;opacity: .6;font-size: 13px;"><%= post.created_at.strftime("%m/%d/%Y")  %>
-      <i class="text-primary">  <%= post.likes.count %> <%= (post.likes.count) == 1 ? ' Like' : 'Likes'%></i>
-      </div>
     </div>
 
-    <div class="card-trip-infos">
-      <div>
-        <!-- Avatar -->
-        <% if post.user.profile && post.user.profile.photo.attached? %>
-        <%= cl_image_tag post.user.profile.photo.key, class:"card-trip-user avatar-bordered"%>
-        <% else %>
-        <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "rounded-circle mr-3"%>
+    <%# PAGINATION %>
+    <nav aria-label="Post navigation" class="posts-pagination my-5">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <% if @page > 0 %>
+            <%= link_to posts_path(page: @page -1), class: "page-link", aria: { label: 'Previous' } do %>
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            <% end %>
+          <% end %>
+        </li>
+        <% (0..(@number_of_pages)).each do |i| %>
+          <li class="page-item <%= 'active' if @page==i %>">
+            <%= link_to "#{i+1}", posts_path(page: i), class: "page-link" %>
+          </li>
         <% end %>
-        <p class="card-trip-infos"><%= post.content %></p>
-        <!-- Button -->
-      </div>
 
-      <div>
-        <i class="fas fa-share-alt text-white float-right p-1 my-1 card-trip-user card-trip-likes"  data-toggle="tooltip" data-placement="top" title="Share this post"></i>
-        <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
-        <% if pre_like %>
-        <%= link_to post_like_path(post, pre_like), method: :delete, remote: true do %>
-        <i class="fas fa-heart text-danger float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i>
-        <% end %>
-        <% else %>
-        <%= link_to post_likes_path(post), method: :post, remote: true do %>
-        <i class="fas fa-heart text-white float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i>
-        <% end %>
-        <% end %>
-        <% if post.user == current_user %>
-        <%= link_to post_path(post), data: { confirm: 'Are you sure?'}, method: :delete do %>
-        <i class="fa fa-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete Post"></i>
-        <% end %>
-        <%= link_to edit_post_path(post) do %>
-        <i class="fas fa-edit" aria-hidden="true" ata-toggle="tooltip" data-placement="top" title="Edit Post"></i>
-        <% end %>
-        <% end %> </i>
-      </div>
-    </div>
-  </div>
-  <% end %>
-  <% end %>
+        <li class="page-item">
+          <% if @posts.count == 6 %>
+            <%= link_to posts_path(page: @page +1), class: "page-link", aria: { label: 'Next' } do %>
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
 </div>
-

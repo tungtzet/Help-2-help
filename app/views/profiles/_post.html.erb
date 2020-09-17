@@ -1,34 +1,49 @@
-<br>
-<p>
-<div class="d-flex justify-content-between flex-wrap">
-
-  <% posts.each do |post| %>
-  <div class="card-trip mb-5 cart-trip-test" style="width: 20rem;">
-    <%  if post.photos.attached? %>
-      <%= cl_image_tag post.photos.first.key %>
+<div class="cards posts">
+  <% @posts.each do |post| %>
+  <div class="card post">
+    <% if post.photos.attached? %>
+    <div class="post-header"
+      style="background-image: linear-gradient(0deg, rgba(34,195,160,0.7374300061821604) 0%, rgba(244,255,61,0.13238798937543772) 50%), 
+      url(<%= cl_image_path post.photos.first.key %>)">
     <% else %>
-      <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
+    <div class="post-header"
+      style="background-image: linear-gradient(0deg, rgba(34,195,160,0.7374300061821604) 0%, rgba(244,255,61,0.13238798937543772) 50%), 
+      url('https://res.cloudinary.com/tungtzet/image/upload/v1598005559/tjahyag1ko2esvaxzlthilfby6tg.jpg')">
     <% end %>
-
-    <div class="card-trip-infos justify-content-between">
-      <div>
-        <div class="d-flex justify-content-between">
-          <h2><%= post.title %></h2>
-          <div>
-            <h6 class="icons-post-edit">
-              <%= link_to "", post_path(post), class: "fas fa-eye" %>&nbsp;
-              <% if post.user == current_user %>
-              <%= link_to "", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "fas fa-trash" %>&nbsp;
-              <%= link_to "", edit_post_path(post), class: "fas fa-pen" %>
-              <% end %>
-            </h6>
-          </div>
-        </div>
-        <div class="par-card" >
-        <p><%= post.content %></p>
-        </div>
+      <div class="card-post-top m-3">
+        <%# DELETE EDIT ICON %>
+        <span class="icons-edit-delete">
+          <% if post.user == current_user %>
+          <%= link_to "", post_path(post), data: { confirm: 'Are you sure?'}, method: :delete, class: "fas fa-trash" %>&nbsp;
+          <%= link_to "", edit_post_path(post), class: "fas fa-pen" %>
+          <% end %>
+        </span>
+        <%# LIKE HEART %>
+        <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+        <% if pre_like %>
+          <%= link_to post_like_path(post, pre_like), method: :delete, remote: true do %>
+            <i class="fas fa-heart text-danger float-right mt-1"
+            data-toggle="tooltip" data-placement="top" title="I like it"></i>
+          <% end %>
+        <% else %>
+        <%= link_to post_likes_path(post), method: :post, remote: true do %>
+          <i class="fas fa-heart text-white float-right mt-1"
+            data-toggle="tooltip" data-placement="top" title="I like it"></i>
+          <% end %>
+        <% end %>
       </div>
-      </div>
+      <%# POST TITLE %>
+      <h3 class="card-post-title m-3"><%= post.title %></h3>
     </div>
+    <div class="card-post-info mx-3 mt-3">
+      <p class="date"><%= post.created_at.strftime("%m/%d/%Y") %></p>
+      <% if post.likes.count > 0 %>
+      <p class="likes"><%= post.likes.count %> <%= (post.likes.count) == 1 ? ' Like' : 'Likes'%></p>
+      <% end %>
+    </div>
+    <%= link_to post_path(post), class: "post-link mx-3 mb-3" do  %>
+      <p class="card-post-summary"><%= post.content %></p>
+    <% end %>
+  </div>
   <% end %>
 </div>

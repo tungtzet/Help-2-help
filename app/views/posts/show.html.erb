@@ -1,84 +1,53 @@
 
-<br>
-<div class="container">
-
-
-
-<section id="promoting-card">
-
-  <!--Section: Live preview-->
-  <section>
-
-<div class="card promoting-card" style="max-width: 22rem;">
-
-      <!-- Card content -->
-      <div class="card-body d-flex flex-row">
-   
-    <!-- Avatar -->
-     <% if @post.user.profile && @post.user.profile.photo.attached? %>
-        <%= cl_image_tag @post.user.profile.photo.key, width: 50, height: 50, class:"rounded-circle mr-3"%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), 
+url(<%= cl_image_path @post.photos.first.key if @post.photos.attached? %>);">
+  <div class="container post-title">
+    <h1><%= @post.title %></h1>
+    <p>
+    <% if @post.user.profile && @post.user.profile.photo.attached? %>
+        <%= cl_image_tag @post.user.profile.photo.key, width: 50, height: 50, gravity: :face, crop: :fill, class:"rounded-circle"%>
       <% else %>
-        <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "rounded-circle mr-3"%>
-      <% end %> 
-    
-
-    <!-- Content -->
-    <div>
-
-      <!-- Title -->
-      <h4 class="card-title font-weight-bold mb-2"><%= @post.title %></h4>
-      <!-- Subtitle -->
-      <p class="card-text"><i class="far fa-clock pr-2"></i>07/24/2018</p>
-
-    </div>
-
-  </div>
-
-  <!-- Card image -->
-  <div class="view overlay">
-  <%  if @post.photos.attached? %>
-    <%= cl_image_tag @post.photos.first.key, class:"card-img-top rounded-0" %>
-  <% else %>
-   <img src="https://media.nesta.org.uk/images/good_help_bad_help.max-1200x600.png"/>
-  <% end %>
-  </div>
-
-  <!-- Card content -->
-  <div class="card-body">
-
-    <div class="collapse-content">
-
-      <!-- Text -->
-      <p class="card-text collapse" id="collapseContent"> <p><%= @post.content %></p>
-      <!-- Button -->
-      <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
-      <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
-      <%= link_to post_likes_path(@post), method: :post do %>
-        <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+        <%= image_tag "https://res.cloudinary.com/tungtzet/image/upload/v1597161724/hands-touching_rr7yp2.jpg", class: "rounded-circle"%>
       <% end %>
+    by <%= link_to @post.user.profile.name, profile_path(@post.user.profile) %> | <%= @post.created_at.strftime("%m/%d/%Y") %>
+    <% if @post.likes.count > 0 %>
+     | <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? ' Like' : 'Likes'%>
+    <% end %>
+    </p>
+  </div>
+</div>
 
-    </div>
+<div class="container mb-5 pb-5 post-show">
 
+  <div class="my-4">
+    <i class="fas fa-share-alt text-white float-right p-1 my-1 card-trip-user card-trip-likes"  data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+    <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+      <% if pre_like %>
+      <%= link_to post_like_path(@post, pre_like), method: :delete, remote: true do %>
+          <i class="fas fa-heart text-danger float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+      <% end %>
+      <% else %>
+        <%= link_to post_likes_path(@post), method: :post, remote: true do %>
+          <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3 card-trip-user card-trip-likes" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+        <% end %>
+      <% end %>
+    <% if @post.user == current_user %>
+      <%= link_to post_path(@post), data: { confirm: 'Are you sure?'}, method: :delete do %>
+        <i class="fa fa-trash pr-3" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete Post"></i> 
+      <% end %>
+      <%= link_to edit_post_path(@post) do %>
+        <i class="fas fa-edit" aria-hidden="true" ata-toggle="tooltip" data-placement="top" title="Edit Post"></i>
+      <% end %>
+    <% else %>
+    <i>&nbsp;</i>
+    <% end %> </i>
   </div>
 
-</div>
-<!-- Card -->
+  <p>
+    <%= @post.content %>
+  </p>
 
-</section>
-
-
-<%= button_to 'Like', post_likes_path(@post), method: :post %>
-<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes' %></p>
-<% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
-<% if pre_like %>
-  <%= button_to 'Unlike', post_like_path(@post,pre_like), method: :delete %>
-  <% else %>
-    <% button_to 'Like', post_likes_path(@post), method: :post %>
-<% end %>
-
-
-<%= link_to post_likes_path(@post), method: :post do %>
-  <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
-<% end %>
-
+  <% if @post.rich_body %>
+    <%= @post.rich_body %>
+  <% end %>
 </div>

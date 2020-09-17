@@ -15,8 +15,14 @@
   align: left;
 }
 
-.nav-item a:hover {
-  color: #fff500;
+.nav-item {
+  a:hover {
+    color: #fff500;
+  }
+
+  .current-page {
+    color: #fff500;
+  }
 }
 
 .navbar-nav {

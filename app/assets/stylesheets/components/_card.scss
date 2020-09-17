@@ -101,6 +101,9 @@ a.custom-card:hover {
 
 .card-trip-infos .card-trip-user {
   position: absolute;
+  margin-left: 10px;
+  margin-top: 10px;
+  // left: 12px;
   top: -297px;
   width: 40px;
 }
@@ -108,7 +111,7 @@ a.custom-card:hover {
 .card-trip-infos .card-trip-likes {
   position: absolute;
   right: -21px;
-  top: -292px;
+  top: -290px;
   width: 40px;
   margin: 36px;
 }
@@ -129,28 +132,36 @@ a.custom-card:hover {
       height: 16px;
       position: absolute;
       bottom: -2px;
-      right: 8px;
+      right: 24px;
       background: #fff500;
       opacity: 0.65;      // background-image: linear-gradient(rgba(238,232,9,0),rgba(238,232,9,0) 50%,rgba(238,232,9,.6) 51%,rgba(238,232,9,.6));
       // transition: all .25s ease;
     }
 }
 
-.card-trip-infos p {
-  display: -webkit-box;
-  max-width: 95%;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+// .card-trip-infos p {
+//   display: -webkit-box;
+//   max-width: 95%;
+//   -webkit-line-clamp: 6;
+//   -webkit-box-orient: vertical;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
 
+// }
+
+p.card-home-text{
+  margin: 10px;
 }
+
+.card-trip-infos .par-card p {
+  margin: 10px;
+} 
 
 .icons-post-edit {
   visibility: hidden;
   position: relative;
-  left: 220px;
-  top: -40px;
+  left: 10px;
+  top: -160px;
   z-index: 2;
   margin-top: -30px;
   a {
@@ -290,3 +301,153 @@ a.custom-card:hover {
   text-decoration: none !important;
 }
 
+.custom-card p.card-trip-infos {
+  display: -webkit-box;
+  max-width: 95%;
+  height: 120px;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 4px;
+}
+
+.date-likes {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  opacity: .3;
+  font-size: 13px;
+  .text-primary {
+    font-style: normal;
+    color: #20c997 !important;
+  }
+}
+
+.card-trip.card-post:hover {
+  .icons-edit-delete {
+    opacity: 1;
+  }
+}
+
+.card-trip-infos .icons-edit-delete {
+  position: absolute;
+  margin-top: 10px;
+  // left: 12px;
+  top: -297px;
+  width: 40px;
+  opacity: 0;
+  a {
+    color: yellow;
+    &:hover {
+      color: #20c997;
+    }
+  }
+}
+
+
+.card-trip .card-trip-infos.card-post-info {
+  padding: 6px;
+  padding-bottom: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 10px;
+  .card-post-text {
+    display: -webkit-box;
+    // max-width: 95%;
+    height: 136px;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+}
+
+.cards.posts {
+  grid-gap: 3rem;
+}
+
+.card.post:hover {
+  .icons-edit-delete {
+    opacity: 1;
+  }
+}
+
+.card-post-top {
+  .avatar {
+  width: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  }
+
+  .icons-edit-delete {
+    opacity: 0;
+    a {
+      color: yellow;
+      &:hover {
+        color: #20c997;
+      }
+    }
+  }
+
+  i.fa-heart {
+    float: right;
+  }
+}
+
+.card.post {
+  border: none;
+  border-bottom: 4px solid #fff500;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  
+  .post-header {
+    background-size: cover;
+    background-position: center;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    h3.card-post-title {
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      font-size: 24px;
+      font-weight: bold;
+      // &::first-letter {
+      //   background: yellow;
+      // }
+    }
+  }
+
+  .post-link {
+    color: black;
+    opacity: 0.6;
+    &:hover {
+      text-decoration: none;
+      color: green;
+    }
+  }
+  .card-post-summary {
+    display: -webkit-box;
+      max-width: 95%;
+      height: 120px;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+}
+
+
+.card-post-info {
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.3;
+  font-size: small;
+  line-height: 1;
+  .likes {
+    color: #1ba37a;
+  }
+}
