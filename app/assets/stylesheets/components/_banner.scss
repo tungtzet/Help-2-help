@@ -4,6 +4,7 @@
   padding: 150px 0;
 }
 
+
 // .banner p {
 //   font-size: 20px;
 //   color: white;
@@ -46,6 +47,12 @@
       // transition: all .25s ease;
     }
   }
+  @media only screen and (max-width: 767px) {
+
+   h2 {
+      font-size: 22px;
+   }
+}
 }
 
 .btn-secondary.btn-search {
@@ -90,6 +97,25 @@
       right: 24px;
       background: #fff500;
       opacity: 0.8;
+    }
+  }
+}
+
+#banner_form {
+  margin: 0 auto;
+  margin-top: 20%;
+  display: flex;
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+    margin-top: 80%;
+    min-width: 90%;
+
+    h2 {
+      margin-top: 86px;
+    }
+    #find_us_btn {
+      margin-top: 8px;
     }
   }
 }
