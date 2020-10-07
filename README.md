@@ -1,1 +1,5 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# helptohelp
+
+#### The social network connecting people with the same healthy conditions
+#### Please check out the beta website: [help2help.life](http://www.help2help.life/)
+
